@@ -1,0 +1,23 @@
+input
+{
+  position: relative;
+  border: 0px solid;
+  font-size: 50px;
+  font-family: "ECAM Regular", serif !important;
+  box-sizing: border-box;
+  background-color: transparent;
+  text-transform: uppercase;
+  text-align: left;
+  color: white;
+  margin: 30px 10px;
+}
+
+input::placeholder
+{
+  color: cyan;
+  text-align: left;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}

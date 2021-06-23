@@ -1,7 +1,9 @@
 import React from 'react';
 import './VhsPage.scss';
-import MainButton from "../components/buttons/MainButton";
 import { useHistory } from "react-router-dom";
+
+import Input from "../components/Input"
+import MainButton from "../components/buttons/MainButton";
 
 const VhsPage = () => {
 
@@ -18,10 +20,14 @@ const VhsPage = () => {
                 <MainButton children={"MENU"} />
                 <MainButton children={"NAV"} />
                 <div className={"screen"}>
-                    <input>118.300</input>
-                    <h1>118.300</h1>
-                    <h1>118.300</h1>
+                    <Input placeholder={"000.000"} type={"text"}/>
+                    <div className="page-splitter"/>
+                    <Input placeholder={"000.000"} type={"text"}/>
+                    <div  className="page-splitter"/>
+                    <Input placeholder={"000.000"} type={"text"}/>
+                    <div className="page-splitter"/>
                 </div>
+
             </div>
         </div>
     )
