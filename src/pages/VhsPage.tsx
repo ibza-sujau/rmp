@@ -16,13 +16,27 @@ export const VhsPage = () => {
 
     return (
         <div className={"page"}>
-            <Button onClick={() => history.push("/vhs")} children={"VHF"}  type={ButtonType.Main}/>
-            <Button children={"HF"}  type={ButtonType.Main}/>
-            <Button children={"TEL"} type={ButtonType.Main}/>
-            <Button onClick={() => history.push("/sqwk")} children={"SQWK"} type={ButtonType.Main}/>
-            <Button children={"-"} type={ButtonType.Main}/>
-            <Button children={"MENU"} type={ButtonType.Main}/>
-            <Button children={"NAV"} type={ButtonType.Main}/>
+            <div>
+                <Button type={ButtonType.Main} children={"VHF"} onClick={() => history.push("/vhs")}/>
+                <Button type={ButtonType.Main} children={"HF"}/>
+                <Button type={ButtonType.Main} children={"TEL"}/>
+                <Button type={ButtonType.Main} children={"SQWK"} onClick={() => history.push("/sqwk")} />
+                <Button type={ButtonType.Main} children={"-"}/>
+                <Button type={ButtonType.Main} children={"MENU"}/>
+                <Button type={ButtonType.Main} children={"NAV"}/>
+            </div>
+            <div>
+                <Button type={ButtonType.Left} onClick={clearVHF} children={""}/>
+                <Button type={ButtonType.Left} onClick={clearVHF} children={""}/>
+                <Button type={ButtonType.Left} onClick={clearVHF} children={""}/>
+                <Button type={ButtonType.Right} onClick={clearVHF} children={""}/>
+            </div>
+            <div>
+                <Button type={ButtonType.Right} onClick={clearVHF} children={""}/>
+                <Button type={ButtonType.Right} onClick={clearVHF} children={""}/>
+                <Button type={ButtonType.Right} onClick={clearVHF} children={""}/>
+                <Button type={ButtonType.Right} onClick={clearVHF} children={""}/>
+            </div>
             <div className={"screen"}>
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
@@ -64,9 +78,9 @@ export const VhsPage = () => {
                 </div>
                 <div className="page-splitter"/>
             </div>
-            <Button type={ButtonType.Left} onClick={clearVHF} children={"•"}/>
-            <Button type={ButtonType.Left} onClick={clearVHF} children={"•"}/>
-            <Button type={ButtonType.Left} onClick={clearVHF} children={"•"}/>
+            <div>
+
+            </div>
         </div>
     )
 }
