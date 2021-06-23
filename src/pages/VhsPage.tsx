@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 // COMPONENTS
 import { Input } from "../components/Input"
-import { Button, ButtonType } from "../components/buttons/MainButton";
+import { Button, ButtonType } from "../components/Button";
 
 export const VhsPage = () => {
 

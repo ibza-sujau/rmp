@@ -9,7 +9,7 @@ type InputProps = {
     onChange?: () => void,
 }
 
-export const Input = ({...props}: InputProps) => {
+export const Input = (props: InputProps) => {
     return (
         <input type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"input"}
                onChange={props.onChange}/>

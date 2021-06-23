@@ -1,5 +1,5 @@
 import React from "react";
-import "./MainButton.scss";
+import "./Button.scss";
 
 export enum ButtonType {
     Left,
@@ -10,13 +10,14 @@ export enum ButtonType {
 
 type ButtonProps = {
     type: ButtonType,
-    className?: string
     onClick?: () => void,
-    children?: any,
+    children?: any
 }
 
 export const Button = (props: ButtonProps) => {
-    return (
-        <button className={"btn"} onClick={props.onClick}>{props.children}</button>
-    );
+    if (props.type === ButtonType.Main) {
+        return (
+            <button onClick={props.onClick}>{props.children}</button>
+        )
+    }
 }
