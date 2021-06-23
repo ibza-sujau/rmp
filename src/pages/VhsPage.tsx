@@ -2,22 +2,23 @@ import React from 'react';
 import './VhsPage.scss';
 import { useHistory } from "react-router-dom";
 
-import Input from "../components/Input"
-import MainButton from "../components/buttons/MainButton";
+// COMPONENTS
+import { Input } from "../components/Input"
+import { Button, ButtonType } from "../components/buttons/MainButton";
 
-const VhsPage = () => {
+export const VhsPage = () => {
 
     const history = useHistory();
 
     return (
         <div className={"page"}>
-            <MainButton onClick={() => history.push("/vhs")} children={"VHF"} />
-            <MainButton children={"HF"} />
-            <MainButton children={"TEL"} />
-            <MainButton onClick={() => history.push("/sqwk")} children={"SQWK"} />
-            <MainButton children={"-"} />
-            <MainButton children={"MENU"} />
-            <MainButton children={"NAV"} />
+            <Button onClick={() => history.push("/vhs")} children={"VHF"}  type={ButtonType.Main}/>
+            <Button children={"HF"}  type={ButtonType.Main}/>
+            <Button children={"TEL"} type={ButtonType.Main}/>
+            <Button onClick={() => history.push("/sqwk")} children={"SQWK"} type={ButtonType.Main}/>
+            <Button children={"-"} type={ButtonType.Main}/>
+            <Button children={"MENU"} type={ButtonType.Main}/>
+            <Button children={"NAV"} type={ButtonType.Main}/>
             <div className={"screen"}>
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
@@ -37,7 +38,7 @@ const VhsPage = () => {
                         <Input characterLimit={7} placeholder={"DATA"} type={"text"}/>
                     </div>
                     <div className={"flex-row-item-2"}>
-                        <h2>VHF1</h2>
+                        <h2>VHF2</h2>
                     </div>
                     <div className={"flex-row-item-3"}>
                         <p>STBY</p>
@@ -50,7 +51,7 @@ const VhsPage = () => {
                         <Input characterLimit={7} placeholder={"DATA"} type={"text"}/>
                     </div>
                     <div className={"flex-row-item-2"}>
-                        <h2>VHF1</h2>
+                        <h2>VHF3</h2>
                     </div>
                     <div className={"flex-row-item-3"}>
                         <p>STBY</p>

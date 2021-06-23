@@ -9,10 +9,9 @@ type InputProps = {
     onChange?: () => void,
 }
 
-const Input = ({...props}: InputProps) => {
-    return(
-        <input type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"input"} onChange={props.onChange}/>
+export const Input = ({...props}: InputProps) => {
+    return (
+        <input type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"input"}
+               onChange={props.onChange}/>
     )
 }
-
-export default Input;
