@@ -1,13 +1,18 @@
 import React from 'react';
-import './VhsPage.scss';
-import MainButton from "./components/buttons/MainButton";
+import './SqwkPage.scss';
+import MainButton from "../components/buttons/MainButton";
+import { useHistory } from "react-router-dom";
 
-const VhsPage = () => {
+const SqwkPage = () => {
+
+    const history = useHistory();
+    const handleClick = () => history.push("/vhs");
+
     return (
         <div className={"page"}>
             <div className={"rmp"}>
                 <div className={"btn-group"}>
-                    <MainButton children={"VHF"} />
+                    <MainButton onClick={handleClick} children={"VHF"} />
                     <MainButton children={"HF"} />
                     <MainButton children={"TEL"} />
                     <MainButton children={"SQWK"} />
@@ -20,4 +25,4 @@ const VhsPage = () => {
     )
 }
 
-export default VhsPage;
+export default SqwkPage;

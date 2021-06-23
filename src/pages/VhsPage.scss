@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "ECAM Regular";
+  src: url("../assets/ECAMFontRegular.ttf");
+}
+
+.page {
+  font-family: "ECAM Regular", serif;
+}
+
+.rmp {
+  width: 680px;
+  height: 900px;
+  margin: 0 auto;
+  background: #7e9bbb;
+  border-radius: 20px;
+}
+
+.btn-group {
+  position: relative;
+  left: 90px;
+  top: 20px;
+}

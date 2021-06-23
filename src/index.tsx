@@ -1,11 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import './index.scss';
-import VhsPage from './VhsPage';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <VhsPage />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import VhsPage from './pages/VhsPage';
+import SqwkPage from './pages/SqwkPage';
+
+const RMP = () => (
+    <Router>
+        <Route path={"/vhs"} component={VhsPage}/>
+        <Route path={"/sqwk"} component={SqwkPage}/>
+    </Router>
+)
+
+render(<RMP/>, document.getElementById("root"));
