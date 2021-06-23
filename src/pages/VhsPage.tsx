@@ -10,7 +10,13 @@ export const VhsPage = () => {
 
     const history = useHistory();
 
-    function clearVHF() {
+    function clearVHF1() {
+
+    }
+    function clearVHF2() {
+
+    }
+    function clearVHF3() {
 
     }
 
@@ -26,16 +32,16 @@ export const VhsPage = () => {
                 <Button type={ButtonType.Main} children={"NAV"}/>
             </div>
             <div>
-                <Button type={ButtonType.Left} onClick={clearVHF} children={"⬤"}/>
-                <Button type={ButtonType.Left} onClick={clearVHF} children={"⬤"}/>
-                <Button type={ButtonType.Left} onClick={clearVHF} children={"⬤"}/>
-                <Button type={ButtonType.Right} onClick={clearVHF} children={"MSG\nCLR"}/>
+                <Button type={ButtonType.Left} onClick={clearVHF1} children={"⬤"}/>
+                <Button type={ButtonType.Left} onClick={clearVHF2} children={"⬤"}/>
+                <Button type={ButtonType.Left} onClick={clearVHF3} children={"⬤"}/>
+                <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
             </div>
             <div>
-                <Button type={ButtonType.Right} onClick={clearVHF} children={"▬"}/>
-                <Button type={ButtonType.Right} onClick={clearVHF} children={"▬"}/>
-                <Button type={ButtonType.Right} onClick={clearVHF} children={"▬"}/>
-                <Button type={ButtonType.Right} onClick={clearVHF} children={"▬"}/>
+                <Button type={ButtonType.Right} children={"▬"}/>
+                <Button type={ButtonType.Right} children={"▬"}/>
+                <Button type={ButtonType.Right} children={"▬"}/>
+                <Button type={ButtonType.Right} children={"▬"}/>
             </div>
             <div className={"screen"}>
                 <div className={"flex-row"}>
