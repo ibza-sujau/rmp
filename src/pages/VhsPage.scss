@@ -20,8 +20,8 @@
 
 .page-splitter {
   position: relative;
-  margin: 0 auto;
-  width: 95%;
+  margin: 20px 0;
+  width: 100%;
   height: 3px;
   background-color: white;
 }
@@ -35,28 +35,28 @@
   border-radius: 10px;
 }
 
-// ROWS
+// FLEXBOX
 
-.row-1 {
+.flex-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-self: center;
 }
 
-.col-1 {
+.flex-row-item-1 {
   display: flex;
   flex: 2;
   justify-content: center;
 }
 
-.col-2 {
+.flex-row-item-2 {
   display: flex;
   flex: 1;
   justify-content: center;
 }
 
-.col-3 {
+.flex-row-item-3 {
   display: flex;
   flex: 1;
   align-items: center;

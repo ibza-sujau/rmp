@@ -19,14 +19,40 @@ const VhsPage = () => {
             <MainButton children={"MENU"} />
             <MainButton children={"NAV"} />
             <div className={"screen"}>
-                <div className={"row-1"}>
-                    <div className={"col-1"}>
+                <div className={"flex-row"}>
+                    <div className={"flex-row-item-1"}>
                         <Input characterLimit={7} placeholder={"DATA"} type={"text"}/>
                     </div>
-                    <div className={"col-2"}>
+                    <div className={"flex-row-item-2"}>
                         <h2>VHF1</h2>
                     </div>
-                    <div className={"col-3"}>
+                    <div className={"flex-row-item-3"}>
+                        <p>STBY</p>
+                        <p>123.124</p>
+                    </div>
+                </div>
+                <div className="page-splitter"/>
+                <div className={"flex-row"}>
+                    <div className={"flex-row-item-1"}>
+                        <Input characterLimit={7} placeholder={"DATA"} type={"text"}/>
+                    </div>
+                    <div className={"flex-row-item-2"}>
+                        <h2>VHF1</h2>
+                    </div>
+                    <div className={"flex-row-item-3"}>
+                        <p>STBY</p>
+                        <p>123.124</p>
+                    </div>
+                </div>
+                <div className="page-splitter"/>
+                <div className={"flex-row"}>
+                    <div className={"flex-row-item-1"}>
+                        <Input characterLimit={7} placeholder={"DATA"} type={"text"}/>
+                    </div>
+                    <div className={"flex-row-item-2"}>
+                        <h2>VHF1</h2>
+                    </div>
+                    <div className={"flex-row-item-3"}>
                         <p>STBY</p>
                         <p>123.124</p>
                     </div>
