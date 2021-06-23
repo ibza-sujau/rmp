@@ -20,12 +20,13 @@ const VhsPage = () => {
                 <MainButton children={"MENU"} />
                 <MainButton children={"NAV"} />
                 <div className={"screen"}>
-                    <Input placeholder={"000.000"} type={"text"}/>
+                    <Input placeholder={"DATA"} type={"text"}/>
                     <div className="page-splitter"/>
-                    <Input placeholder={"000.000"} type={"text"}/>
+                    <Input placeholder={"DATA"} type={"text"}/>
                     <div  className="page-splitter"/>
-                    <Input placeholder={"000.000"} type={"text"}/>
+                    <Input placeholder={"DATA"} type={"text"}/>
                     <div className="page-splitter"/>
+                    <p className={"sqwk"}>SQUAWK: 7000</p>
                 </div>
 
             </div>
