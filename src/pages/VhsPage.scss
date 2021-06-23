@@ -7,6 +7,7 @@
   font-family: "ECAM Regular", serif !important;
   font-weight: 100 !important;
   color: white !important;
+  margin: 0;
 }
 
 .page {
@@ -49,10 +50,11 @@
 }
 
 .col-2 {
-  margin: 40px;
+  margin: auto 20px;
   padding: 0;
 }
 
 .col-3 {
-  margin: 10px;
+  margin: auto 20px;
+  padding: 0;
 }
