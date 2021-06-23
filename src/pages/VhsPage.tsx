@@ -1,14 +1,18 @@
 import React from 'react';
 import './VhsPage.scss';
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 // COMPONENTS
-import { Input } from "../components/Input"
-import { Button, ButtonType } from "../components/Button";
+import {Input} from "../components/Input"
+import {Button, ButtonType} from "../components/Button";
 
 export const VhsPage = () => {
 
     const history = useHistory();
+
+    function clearVHF() {
+
+    }
 
     return (
         <div className={"page"}>
@@ -60,6 +64,9 @@ export const VhsPage = () => {
                 </div>
                 <div className="page-splitter"/>
             </div>
+            <Button type={ButtonType.Left} onClick={clearVHF} children={"•"}/>
+            <Button type={ButtonType.Left} onClick={clearVHF} children={"•"}/>
+            <Button type={ButtonType.Left} onClick={clearVHF} children={"•"}/>
         </div>
     )
 }
