@@ -4,13 +4,14 @@ import "./Input.scss";
 type InputProps = {
     type: "text" | "number",
     placeholder: string,
+    characterLimit: number,
     className?: string,
     onChange?: () => void,
 }
 
 const Input = ({...props}: InputProps) => {
     return(
-        <input type={props.type} placeholder={props.placeholder} className={"input"} onChange={props.onChange}/>
+        <input type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"input"} onChange={props.onChange}/>
     )
 }
 
