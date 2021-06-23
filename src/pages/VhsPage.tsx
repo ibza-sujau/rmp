@@ -32,7 +32,6 @@ const VhsPage = () => {
                     </div>
                 </div>
                 <div className="page-splitter"/>
-                <p className={"sqwk"}>SQUAWK: 7000</p>
             </div>
         </div>
     )
