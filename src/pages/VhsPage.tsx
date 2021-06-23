@@ -18,9 +18,9 @@ const VhsPage = () => {
                 <MainButton children={"MENU"} />
                 <MainButton children={"NAV"} />
                 <div className={"screen"}>
-                    <text>118.300</text>
-                    <text>118.300</text>
-                    <text>118.300</text>
+                    <input>118.300</input>
+                    <h1>118.300</h1>
+                    <h1>118.300</h1>
                 </div>
             </div>
         </div>

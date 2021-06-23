@@ -3,8 +3,9 @@
   src: url("../assets/ECAMFontRegular.ttf");
 }
 
-text {
+h1 {
   color: white;
+  font-weight: 100;
 }
 
 .page {
@@ -21,7 +22,8 @@ text {
 
 .screen {
   width: 480px;
-  height: 400px;
-  margin: 0 auto;
+  height: 360px;
+  margin: 40px auto;
   background-color: black;
+  border-radius: 10px;
 }
