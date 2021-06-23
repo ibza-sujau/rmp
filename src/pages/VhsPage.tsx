@@ -1,6 +1,7 @@
 import React from 'react';
 import './VhsPage.scss';
 import {useHistory} from "react-router-dom";
+import {useState} from "react";
 
 // COMPONENTS
 import {Input} from "../components/Input"
@@ -10,15 +11,9 @@ export const VhsPage = () => {
 
     const history = useHistory();
 
-    function clearVHF1() {
-
-    }
-    function clearVHF2() {
-
-    }
-    function clearVHF3() {
-
-    }
+    const [VHF1, setVHF1] = useState(String);
+    const [VHF2, setVHF2] = useState(String);
+    const [VHF3, setVHF3] = useState(String);
 
     return (
         <div className={"page"}>
@@ -32,9 +27,9 @@ export const VhsPage = () => {
                 <Button type={ButtonType.Main} children={"NAV"}/>
             </div>
             <div>
-                <Button type={ButtonType.Left} onClick={clearVHF1} children={"⬤"}/>
-                <Button type={ButtonType.Left} onClick={clearVHF2} children={"⬤"}/>
-                <Button type={ButtonType.Left} onClick={clearVHF3} children={"⬤"}/>
+                <Button type={ButtonType.Left} children={"⬤"}/>
+                <Button type={ButtonType.Left} children={"⬤"}/>
+                <Button type={ButtonType.Left} children={"⬤"}/>
                 <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
             </div>
             <div>
@@ -46,7 +41,7 @@ export const VhsPage = () => {
             <div className={"screen"}>
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
-                        <Input characterLimit={7} placeholder={"DATA"} type={"text"}/>
+                        <Input value={VHF1} characterLimit={7} placeholder={"DATA"} type={"text"}/>
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF1</h2>
@@ -59,7 +54,7 @@ export const VhsPage = () => {
                 <div className="page-splitter"/>
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
-                        <Input characterLimit={7} placeholder={"DATA"} type={"text"}/>
+                        <Input value={VHF2} characterLimit={7} placeholder={"DATA"} type={"text"}/>
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF2</h2>
@@ -72,7 +67,7 @@ export const VhsPage = () => {
                 <div className="page-splitter"/>
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
-                        <Input characterLimit={7} placeholder={"DATA"} type={"text"}/>
+                        <Input value={VHF3} characterLimit={7} placeholder={"DATA"} type={"text"}/>
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF3</h2>
