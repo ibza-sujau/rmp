@@ -6,13 +6,12 @@ type MainButtonProps = {
     onClick?: () => void,
     x?: number,
     y?: number,
-    textColor?: string,
     children?: any,
 }
 
 const MainButton = ({...props}: MainButtonProps) => {
     return(
-        <button className={props.className} onClick={props.onClick} style={{left: props.x + "%", top: props.y + "%", color: props.textColor}}>{props.children}</button>
+        <button className={"main-btn"} onClick={props.onClick} style={{left: props.x + "%", top: props.y + "%"}}>{props.children}</button>
     )
 }
 
