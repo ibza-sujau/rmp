@@ -79,7 +79,14 @@ export const VhsPage = () => {
                 <div className="page-splitter"/>
             </div>
             <div>
-
+                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+            </div>
+            <div>
+                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
         </div>
     )
