@@ -8,7 +8,7 @@ type InputProps = {
     characterLimit: number,
     defaultValue?: any,
     className?: string,
-    onChange?: (value: string) => any,
+    onChange?: (event: any) => void,
 }
 
 export const Input = (props: InputProps) => {

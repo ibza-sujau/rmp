@@ -15,8 +15,16 @@ export const VhsPage = () => {
     const [VHF2, setVHF2] = useState(String);
     const [VHF3, setVHF3] = useState(String);
 
-    function updateVHF1(value: string) {
-        setVHF1(value);
+    function handleChangeVHF1(event: any) {
+        setVHF1(event.target.value)
+    }
+
+    function handleChangeVHF2(event: any) {
+        setVHF2(event.target.value)
+    }
+
+    function handleChangeVHF3(event: any) {
+        setVHF3(event.target.value)
     }
 
     return (
@@ -45,7 +53,7 @@ export const VhsPage = () => {
             <div className={"screen"}>
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
-                        <Input value={VHF1} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={(value) => updateVHF1(value)}/>
+                        <Input value={VHF1} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF1}/>
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF1</h2>
@@ -58,7 +66,7 @@ export const VhsPage = () => {
                 <div className="page-splitter"/>
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
-                        <Input value={VHF2} characterLimit={7} placeholder={"DATA"} type={"text"}/>
+                        <Input value={VHF2} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF2}/>
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF2</h2>
@@ -71,7 +79,7 @@ export const VhsPage = () => {
                 <div className="page-splitter"/>
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
-                        <Input value={VHF3} characterLimit={7} placeholder={"DATA"} type={"text"}/>
+                        <Input value={VHF3} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF3}/>
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF3</h2>
