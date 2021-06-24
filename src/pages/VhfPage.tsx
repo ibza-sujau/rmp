@@ -7,18 +7,6 @@ import {useState} from "react";
 import {Input} from "../components/Input"
 import {Button, ButtonType} from "../components/Button";
 
-// ASSETS
-const volumeSVG = (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}} width={"100px"} height={"35px"}>
-        <title>Volume SVG</title>
-        <g id="Layer_2" data-name="Layer 2">
-            <g id="Layer_1-2" data-name="Layer 1">
-                <polygon className="cls-1" points="397.2 208.47 0 208.47 0 663.79 402.88 663.79 402.88 663.21 718.5 868 718.5 434 718.5 0 397.2 208.47"/>
-            </g>
-        </g>
-    </svg>
-)
-
 export const VhfPage = () => {
 
     const history = useHistory();
@@ -43,11 +31,53 @@ export const VhfPage = () => {
     }
 
     function handleSelectVHF1() {
-        setSelectVHF1(true);
+        if (selectVHF1 === true) {
+            setSelectVHF1(true);
+        } else {
+            setSelectVHF1(false);
+        }
     }
 
     function handleSelectVHF2() {
-        setSelectVHF2(true);
+        if (selectVHF1 === true) {
+            setSelectVHF1(true);
+        } else {
+            setSelectVHF2(false);
+        }
+    }
+
+    function checkSelectState() {
+        if (selectVHF1 === true) {
+            return (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}} width={"100px"} height={"35px"}>
+                    <title>Volume SVG</title>
+                    <g id="Layer_2" data-name="Layer 2">
+                        <g id="Layer_1-2" data-name="Layer 1">
+                            <polygon className="cls-1" points="397.2 208.47 0 208.47 0 663.79 402.88 663.79 402.88 663.21 718.5 868 718.5 434 718.5 0 397.2 208.47"/>
+                        </g>
+                    </g>
+                </svg>
+            )
+        } else {
+            return;
+        }
+    }
+
+    function checkSelectState2() {
+        if (selectVHF2 === true) {
+            return (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}} width={"100px"} height={"35px"}>
+                    <title>Volume SVG</title>
+                    <g id="Layer_2" data-name="Layer 2">
+                        <g id="Layer_1-2" data-name="Layer 1">
+                            <polygon className="cls-1" points="397.2 208.47 0 208.47 0 663.79 402.88 663.79 402.88 663.21 718.5 868 718.5 434 718.5 0 397.2 208.47"/>
+                        </g>
+                    </g>
+                </svg>
+            )
+        } else {
+            return;
+        }
     }
 
     return (
@@ -77,7 +107,7 @@ export const VhfPage = () => {
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
                         <Input value={VHF1} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF1}/>
-                        {volumeSVG}
+                        {checkSelectState()}
                     </div>
                     <div className={"flex-row-item-2 highlight"}>
                         <h2>VHF1</h2>
@@ -91,6 +121,7 @@ export const VhfPage = () => {
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
                         <Input value={VHF2} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF2}/>
+                        {checkSelectState2()}
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF2</h2>
@@ -121,7 +152,7 @@ export const VhfPage = () => {
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
             <div className={"flex-row"}>
-                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"} onClick={handleChangeVHF2}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"} onClick={handleSelectVHF2}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
