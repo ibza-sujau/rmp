@@ -8,12 +8,13 @@ type InputProps = {
     characterLimit: number,
     defaultValue?: any,
     className?: string,
+    onClick?: () => void,
     onChange?: (event: any) => void,
     selected?: boolean,
 }
 
 export const Input = (props: InputProps) => {
     return (
-        <input value={props.value} type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"input"} onChange={props.onChange}/>
+        <input value={props.value} type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"input"} onChange={props.onChange} onClick={props.onClick}/>
     )
 }

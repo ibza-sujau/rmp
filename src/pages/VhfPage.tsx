@@ -42,11 +42,11 @@ export const VhfPage = () => {
         setVHF3(event.target.value);
     }
 
-    function handleSelectVHF1(event: any) {
+    function handleSelectVHF1() {
         setSelectVHF1(true);
     }
 
-    function handleSelectVHF2(event: any) {
+    function handleSelectVHF2() {
         setSelectVHF2(true);
     }
 
@@ -56,7 +56,7 @@ export const VhfPage = () => {
                 <Button type={ButtonType.Main} children={"VHF"} onClick={() => history.push("/vhs")}/>
                 <Button type={ButtonType.Main} children={"HF"}/>
                 <Button type={ButtonType.Main} children={"TEL"}/>
-                <Button type={ButtonType.Main} children={"SQWK"} onClick={() => history.push("/sqwk")} />
+                <Button type={ButtonType.Main} children={"SQWK"} onClick={() => history.push("/sqwk")}/>
                 <Button type={ButtonType.Main} children={"-"}/>
                 <Button type={ButtonType.Main} children={"MENU"}/>
                 <Button type={ButtonType.Main} children={"NAV"}/>
@@ -116,12 +116,12 @@ export const VhfPage = () => {
                 <div className="page-splitter"/>
             </div>
             <div className={"flex-row"}>
-                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"} onClick={handleSelectVHF1}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
             <div className={"flex-row"}>
-                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"} onClick={handleChangeVHF2}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
