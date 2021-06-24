@@ -15,6 +15,10 @@ export const VhsPage = () => {
     const [VHF2, setVHF2] = useState(String);
     const [VHF3, setVHF3] = useState(String);
 
+    function updateVHF1(value: string) {
+        setVHF1(value);
+    }
+
     return (
         <div className={"page"}>
             <div>
@@ -41,7 +45,7 @@ export const VhsPage = () => {
             <div className={"screen"}>
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
-                        <Input value={VHF1} characterLimit={7} placeholder={"DATA"} type={"text"}/>
+                        <Input value={VHF1} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={(value) => updateVHF1(value)}/>
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF1</h2>
@@ -80,14 +84,14 @@ export const VhsPage = () => {
                 <div className="page-splitter"/>
             </div>
             <div>
-                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
-                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
-                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
             <div>
-                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
-                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
-                <Button type={ButtonType.Main} onClick={clearVHF} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
         </div>
     )

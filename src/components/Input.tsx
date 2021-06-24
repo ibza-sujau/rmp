@@ -6,13 +6,13 @@ type InputProps = {
     value: string,
     placeholder: string,
     characterLimit: number,
+    defaultValue?: any,
     className?: string,
-    onChange?: () => void,
+    onChange?: (value: string) => any,
 }
 
 export const Input = (props: InputProps) => {
     return (
-        <input value={props.value} type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"input"}
-               onChange={props.onChange}/>
+        <input value={props.value} type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"input"} onChange={props.onChange}/>
     )
 }
