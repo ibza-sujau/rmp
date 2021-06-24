@@ -56,9 +56,7 @@ export const VhfPage = () => {
                     </g>
                 </svg>
             )
-        } else {
-            return;
-        }
+        } else return;
     }
 
     function checkSelectVHF2() {
@@ -73,9 +71,7 @@ export const VhfPage = () => {
                     </g>
                 </svg>
             )
-        } else {
-            return;
-        }
+        } else return;
     }
 
     // CALL BUTTON COLOUR CHANGE
@@ -83,17 +79,27 @@ export const VhfPage = () => {
     function handleColorChangeVHF2() {
         if (currentVFH === "VHF2") {
             return "active-vhf"
-        } else {
-            return;
-        }
+        } else return;
     }
 
     function handleColorChangeVHF1() {
         if (currentVFH === "VHF1") {
             return "active-vhf"
-        } else {
-            return;
-        }
+        } else return;
+    }
+
+    // HANDLE STBY CHANGE
+
+    function handleStandByVHF1() {
+        if (currentVFH === "VHF1") {
+            return "STBY";
+        } else return;
+    }
+
+    function handleStandByVHF2() {
+        if (currentVFH === "VHF2") {
+            return "STBY";
+        } else return;
     }
 
     return (
@@ -129,7 +135,7 @@ export const VhfPage = () => {
                         <h2>VHF1</h2>
                     </div>
                     <div className={"flex-row-item-3"}>
-                        <p>STBY</p>
+                        <p>{handleStandByVHF1()}</p>
                         <p>123.124</p>
                     </div>
                 </div>
@@ -143,7 +149,7 @@ export const VhfPage = () => {
                         <h2>VHF2</h2>
                     </div>
                     <div className={"flex-row-item-3"}>
-                        <p>STBY</p>
+                        <p>{handleStandByVHF2()}</p>
                         <p>123.124</p>
                     </div>
                 </div>
