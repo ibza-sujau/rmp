@@ -11,12 +11,11 @@ export const VhfPage = () => {
 
     const history = useHistory();
 
-    const [VHF1, setVHF1] = useState(String);
-    const [VHF2, setVHF2] = useState(String);
-    const [VHF3, setVHF3] = useState(String);
+    const [VHF1, setVHF1] = useState<string>("");
+    const [VHF2, setVHF2] = useState<string>("");
+    const [VHF3, setVHF3] = useState<string>("");
 
-    const [selectVHF1, setSelectVHF1] = useState(Boolean);
-    const [selectVHF2, setSelectVHF2] = useState(Boolean);
+    const [currentVFH, setCurrentVHF] = useState<"VHF1" | "VHF2">("VHF1");
 
     function handleChangeVHF1(event: any) {
         setVHF1(event.target.value);
@@ -30,23 +29,18 @@ export const VhfPage = () => {
         setVHF3(event.target.value);
     }
 
-    function handleSelectVHF() {
-        if (selectVHF1 === true) {
-            setSelectVHF1(false);
-        } else {
-            setSelectVHF1(true);
-        }
-        if (selectVHF2 === true) {
-            setSelectVHF2(false);
-        } else {
-            setSelectVHF2(true);
-        }
+    function handleSelectVHF1() {
+        setCurrentVHF("VHF1");
     }
 
-    function checkSelectState() {
-        if (selectVHF1 === true) {
+    function handleSelectVHF2() {
+        setCurrentVHF("VHF2")
+    }
+
+    function checkSelectVHF1() {
+        if (currentVFH === "VHF1") {
             return (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}} width={"100px"} height={"35px"}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}} width={"100px"} height={"30px"}>
                     <title>Volume SVG</title>
                     <g id="Layer_2" data-name="Layer 2">
                         <g id="Layer_1-2" data-name="Layer 1">
@@ -60,10 +54,10 @@ export const VhfPage = () => {
         }
     }
 
-    function checkSelectState2() {
-        if (selectVHF2 === true) {
+    function checkSelectVHF2() {
+        if (currentVFH === "VHF2") {
             return (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}} width={"100px"} height={"35px"}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}} width={"100px"} height={"30px"}>
                     <title>Volume SVG</title>
                     <g id="Layer_2" data-name="Layer 2">
                         <g id="Layer_1-2" data-name="Layer 1">
@@ -104,7 +98,7 @@ export const VhfPage = () => {
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
                         <Input value={VHF1} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF1}/>
-                        {checkSelectState()}
+                        {checkCurrentVHF1()}
                     </div>
                     <div className={"flex-row-item-2 highlight"}>
                         <h2>VHF1</h2>
@@ -118,7 +112,7 @@ export const VhfPage = () => {
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
                         <Input value={VHF2} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF2}/>
-                        {checkSelectState2()}
+                        {checkCurrentVHF2()}
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF2</h2>
