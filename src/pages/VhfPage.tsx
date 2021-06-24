@@ -98,7 +98,7 @@ export const VhfPage = () => {
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
                         <Input value={VHF1} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF1}/>
-                        {checkCurrentVHF1()}
+                        {checkSelectVHF1()}
                     </div>
                     <div className={"flex-row-item-2 highlight"}>
                         <h2>VHF1</h2>
@@ -112,7 +112,7 @@ export const VhfPage = () => {
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
                         <Input value={VHF2} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF2}/>
-                        {checkCurrentVHF2()}
+                        {checkSelectVHF2()}
                     </div>
                     <div className={"flex-row-item-2"}>
                         <h2>VHF2</h2>
