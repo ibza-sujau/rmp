@@ -9,7 +9,7 @@ import {Button, ButtonType} from "../components/Button";
 
 // ASSETS
 const volumeSVG = (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}} width={"100px"} height={"35px"}>
         <title>Volume SVG</title>
         <g id="Layer_2" data-name="Layer 2">
             <g id="Layer_1-2" data-name="Layer 1">
@@ -26,22 +26,28 @@ export const VhfPage = () => {
     const [VHF1, setVHF1] = useState(String);
     const [VHF2, setVHF2] = useState(String);
     const [VHF3, setVHF3] = useState(String);
-    const [selectedVHF, setSelectedVHF] = useState(Boolean)
+
+    const [selectVHF1, setSelectVHF1] = useState(Boolean);
+    const [selectVHF2, setSelectVHF2] = useState(Boolean);
 
     function handleChangeVHF1(event: any) {
-        setVHF1(event.target.value)
+        setVHF1(event.target.value);
     }
 
     function handleChangeVHF2(event: any) {
-        setVHF2(event.target.value)
+        setVHF2(event.target.value);
     }
 
     function handleChangeVHF3(event: any) {
-        setVHF3(event.target.value)
+        setVHF3(event.target.value);
     }
 
-    function handleVHFSelect(event: any) {
-        setSelectedVHF(event.target.value)
+    function handleSelectVHF1(event: any) {
+        setSelectVHF1(true);
+    }
+
+    function handleSelectVHF2(event: any) {
+        setSelectVHF2(true);
     }
 
     return (
