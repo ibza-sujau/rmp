@@ -7,6 +7,18 @@ import {useState} from "react";
 import {Input} from "../components/Input"
 import {Button, ButtonType} from "../components/Button";
 
+// ASSETS
+const volumeSVG = (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.5 868" style={{fill: "#fff"}}>
+        <title>Volume SVG</title>
+        <g id="Layer_2" data-name="Layer 2">
+            <g id="Layer_1-2" data-name="Layer 1">
+                <polygon className="cls-1" points="397.2 208.47 0 208.47 0 663.79 402.88 663.79 402.88 663.21 718.5 868 718.5 434 718.5 0 397.2 208.47"/>
+            </g>
+        </g>
+    </svg>
+)
+
 export const VhfPage = () => {
 
     const history = useHistory();
@@ -34,7 +46,7 @@ export const VhfPage = () => {
 
     return (
         <div className={"page"}>
-            <div>
+            <div className={"flex-row"}>
                 <Button type={ButtonType.Main} children={"VHF"} onClick={() => history.push("/vhs")}/>
                 <Button type={ButtonType.Main} children={"HF"}/>
                 <Button type={ButtonType.Main} children={"TEL"}/>
@@ -43,13 +55,13 @@ export const VhfPage = () => {
                 <Button type={ButtonType.Main} children={"MENU"}/>
                 <Button type={ButtonType.Main} children={"NAV"}/>
             </div>
-            <div>
+            <div className={"flex-column"}>
                 <Button type={ButtonType.Left} children={"⬤"}/>
                 <Button type={ButtonType.Left} children={"⬤"}/>
                 <Button type={ButtonType.Left} children={"⬤"}/>
                 <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
             </div>
-            <div>
+            <div className={"flex-column"}>
                 <Button type={ButtonType.Right} children={"▬"}/>
                 <Button type={ButtonType.Right} children={"▬"}/>
                 <Button type={ButtonType.Right} children={"▬"}/>
@@ -59,8 +71,9 @@ export const VhfPage = () => {
                 <div className={"flex-row"}>
                     <div className={"flex-row-item-1"}>
                         <Input value={VHF1} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF1}/>
+                        {volumeSVG}
                     </div>
-                    <div className={"flex-row-item-2"}>
+                    <div className={"flex-row-item-2 highlight"}>
                         <h2>VHF1</h2>
                     </div>
                     <div className={"flex-row-item-3"}>
@@ -96,12 +109,12 @@ export const VhfPage = () => {
                 </div>
                 <div className="page-splitter"/>
             </div>
-            <div>
+            <div className={"flex-row"}>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
-            <div>
+            <div className={"flex-row"}>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>

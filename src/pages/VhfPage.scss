@@ -6,7 +6,6 @@
 * {
   font-family: "ECAM Regular", serif !important;
   font-weight: 100 !important;
-  color: white !important;
   margin: 0;
 }
 
@@ -16,6 +15,7 @@
   margin: 0 auto;
   background: #7e9bbb;
   border-radius: 20px;
+  color: white;
 }
 
 .page-splitter {
@@ -36,7 +36,7 @@
   border-radius: 10px;
 }
 
-// FLEXBOX
+// FLEXBOX ROW
 
 .flex-row {
   display: flex;
@@ -67,6 +67,23 @@
 .flex-row-item-3 p {
   margin-bottom: 10px;
 }
+
+// FLEXBOX COLUMN
+
+
+.flex-column {
+}
+
+
+// MISC
+
+.highlight {
+  height: 30px;
+  width: 60px;
+  background-color: lawngreen;
+  color: black !important;
+}
+
 
 .alt-btn {
   color: #373737 !important;
