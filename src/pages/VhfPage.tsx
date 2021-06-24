@@ -30,19 +30,16 @@ export const VhfPage = () => {
         setVHF3(event.target.value);
     }
 
-    function handleSelectVHF1() {
+    function handleSelectVHF() {
         if (selectVHF1 === true) {
-            setSelectVHF1(true);
-        } else {
             setSelectVHF1(false);
-        }
-    }
-
-    function handleSelectVHF2() {
-        if (selectVHF1 === true) {
-            setSelectVHF1(true);
         } else {
+            setSelectVHF1(true);
+        }
+        if (selectVHF2 === true) {
             setSelectVHF2(false);
+        } else {
+            setSelectVHF2(true);
         }
     }
 
