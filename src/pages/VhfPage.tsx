@@ -1,5 +1,5 @@
 import React from 'react';
-import './VhsPage.scss';
+import './VhfPage.scss';
 import {useHistory} from "react-router-dom";
 import {useState} from "react";
 
@@ -7,13 +7,14 @@ import {useState} from "react";
 import {Input} from "../components/Input"
 import {Button, ButtonType} from "../components/Button";
 
-export const VhsPage = () => {
+export const VhfPage = () => {
 
     const history = useHistory();
 
     const [VHF1, setVHF1] = useState(String);
     const [VHF2, setVHF2] = useState(String);
     const [VHF3, setVHF3] = useState(String);
+    const [selectedVHF, setSelectedVHF] = useState(Boolean)
 
     function handleChangeVHF1(event: any) {
         setVHF1(event.target.value)
@@ -25,6 +26,10 @@ export const VhsPage = () => {
 
     function handleChangeVHF3(event: any) {
         setVHF3(event.target.value)
+    }
+
+    function handleVHFSelect(event: any) {
+        setSelectedVHF(event.target.value)
     }
 
     return (
@@ -105,4 +110,4 @@ export const VhsPage = () => {
     )
 }
 
-export default VhsPage;
+export default VhfPage;

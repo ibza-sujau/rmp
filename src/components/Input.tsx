@@ -9,6 +9,7 @@ type InputProps = {
     defaultValue?: any,
     className?: string,
     onChange?: (event: any) => void,
+    selected?: boolean,
 }
 
 export const Input = (props: InputProps) => {
