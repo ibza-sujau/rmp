@@ -17,6 +17,8 @@ export const VhfPage = () => {
 
     const [currentVFH, setCurrentVHF] = useState<"VHF1" | "VHF2">("VHF1");
 
+    // HANDLE VALUE CHANGES IN VHF
+
     function handleChangeVHF1(event: any) {
         setVHF1(event.target.value);
     }
@@ -29,13 +31,18 @@ export const VhfPage = () => {
         setVHF3(event.target.value);
     }
 
+    // SELECT VHF
+
     function handleSelectVHF1() {
         setCurrentVHF("VHF1");
+
     }
 
     function handleSelectVHF2() {
         setCurrentVHF("VHF2")
     }
+
+    // SCREEN CHANGE IN SELECT SVG
 
     function checkSelectVHF1() {
         if (currentVFH === "VHF1") {
@@ -66,6 +73,24 @@ export const VhfPage = () => {
                     </g>
                 </svg>
             )
+        } else {
+            return;
+        }
+    }
+
+    // CALL BUTTON COLOUR CHANGE
+
+    function handleColorChangeVHF2() {
+        if (currentVFH === "VHF2") {
+            return "active-vhf"
+        } else {
+            return;
+        }
+    }
+
+    function handleColorChangeVHF1() {
+        if (currentVFH === "VHF1") {
+            return "active-vhf"
         } else {
             return;
         }
@@ -138,12 +163,12 @@ export const VhfPage = () => {
                 <div className="page-splitter"/>
             </div>
             <div className={"flex-row"}>
-                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"} onClick={handleSelectVHF1}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + handleColorChangeVHF1()} onClick={handleSelectVHF1}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
             <div className={"flex-row"}>
-                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"} onClick={handleSelectVHF2}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + handleColorChangeVHF2()} onClick={handleSelectVHF2}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
