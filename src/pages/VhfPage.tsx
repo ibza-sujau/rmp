@@ -19,12 +19,14 @@ export const VhfPage = () => {
     useEffect(() => {
         setVHF1(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF1")) || ""));
         setVHF2(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF2")) || ""));
+        setCurrentVHF(JSON.parse(JSON.stringify(window.localStorage.getItem("currentVHF")) || ""));
     }, []);
 
     useEffect(() => {
         window.localStorage.setItem("VHF1", VHF1);
         window.localStorage.setItem("VHF2", VHF2);
-    }, [VHF1, VHF2]);
+        window.localStorage.setItem("currentVHF", currentVFH);
+    }, [VHF1, VHF2, currentVFH]);
 
     function clearStateVHF1() {
         setVHF1("");
@@ -220,7 +222,7 @@ export const VhfPage = () => {
                         </div>
                     </div>
                     <div className="page-splitter"/>
-                    <p style={{marginTop: 10}}>SQUAWK: 7000</p>
+                    <p style={{marginTop: 10}}>SQUAWK: {window.localStorage.getItem("SQWK")}</p>
                 </div>
                 <div className={"flex-column-item-2"}>
                     <Button type={ButtonType.Right} children={"▬"}/>

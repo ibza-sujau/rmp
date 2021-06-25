@@ -24,6 +24,18 @@ export const SqwkPage = () => {
         setSQWK(event.target.value);
     }
 
+    function addColourVHF1() {
+        if (window.localStorage.getItem("currentVHF") === "VHF1") {
+            return "active-vhf"
+        } else return;
+    }
+
+    function addColourVHF2() {
+        if (window.localStorage.getItem("currentVHF") === "VHF2") {
+            return "active-vhf"
+        } else return;
+    }
+
     return (
         <div className={"page"}>
             <div className={"flex-row main-button-group"}>
@@ -68,12 +80,12 @@ export const SqwkPage = () => {
 
 
             <div className={"flex-row"}>
-                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn "}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + addColourVHF1()}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
             <div className={"flex-row"}>
-                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + addColourVHF2()}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
