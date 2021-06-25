@@ -20,17 +20,20 @@
 
 .page-splitter {
   position: relative;
-  margin: 20px 0 40px;
   width: 100%;
   height: 3px;
   background-color: white;
 }
 
+.page-splitter:nth-last-child() {
+  margin: 20px 0 10px;
+}
+
 .screen {
   position: relative;
-  padding: 30px 15px;
+  padding: 0 15px 30px;
   width: 480px;
-  height: 380px;
+  height: 265px;
   margin: 40px auto;
   background-color: black;
   border-radius: 10px;
@@ -43,7 +46,13 @@
   flex-direction: row;
   align-items: center;
   justify-self: center;
-  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+div .flex-row  {
+  width: 480px;
+  height: 62px;
 }
 
 .flex-row-item-1 {
@@ -69,8 +78,21 @@
 
 
 .flex-column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: center;
 }
 
+.flex-column-item-1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-item-2 {
+  display: flex;
+  flex-direction: column;
+}
 
 // MISC
 
@@ -88,7 +110,7 @@
   color: lawngreen !important;
 }
 
-.active-vhf-border {
+.stby-border {
   border: 1px solid;
   line-height: 30px;
 }

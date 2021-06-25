@@ -42,7 +42,7 @@ export const VhfPage = () => {
         setCurrentVHF("VHF2")
     }
 
-    // SCREEN CHANGE IN SELECT SVG
+    // ADD VOLUME SVG
 
     function checkSelectVHF1() {
         if (currentVFH === "VHF1") {
@@ -106,13 +106,13 @@ export const VhfPage = () => {
 
     function addBorderVHF1() {
         if (currentVFH === "VHF1") {
-            return "active-vhf-border";
+            return "stby-border";
         } else return;
     }
 
     function addBorderVHF2() {
         if (currentVFH === "VHF2") {
-            return "active-vhf-border";
+            return "stby-border";
         } else return;
     }
 
@@ -130,6 +130,19 @@ export const VhfPage = () => {
         } else return;
     }
 
+    // ADD STBY COLOUR
+
+    function addSTBYColourVHF1() {
+        if (currentVFH === "VHF1") {
+            return "stby-freq";
+        } else return;
+    }
+
+    function addSTBYColourVHF2() {
+        if (currentVFH === "VHF2") {
+            return "stby-freq";
+        } else return;
+    }
 
     return (
         <div className={"page"}>
@@ -143,60 +156,66 @@ export const VhfPage = () => {
                 <Button type={ButtonType.Main} children={"NAV"}/>
             </div>
             <div className={"flex-column"}>
-                <Button type={ButtonType.Left} children={"⬤"}/>
-                <Button type={ButtonType.Left} children={"⬤"}/>
-                <Button type={ButtonType.Left} children={"⬤"}/>
-                <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
-            </div>
-            <div className={"flex-column"}>
-                <Button type={ButtonType.Right} children={"▬"}/>
-                <Button type={ButtonType.Right} children={"▬"}/>
-                <Button type={ButtonType.Right} children={"▬"}/>
-                <Button type={ButtonType.Right} children={"▬"}/>
-            </div>
-            <div className={"screen"}>
-                <div className={"flex-row"}>
-                    <div className={"flex-row-item-1"}>
-                        <Input value={VHF1} characterLimit={7} placeholder={"123.300"} type={"text"} onChange={handleChangeVHF1}/>
-                        {checkSelectVHF1()}
-                    </div>
-                    <div className={"flex-row-item-2"}>
-                        <h2 className={addHighlightVHF1()}>VHF1</h2>
-                    </div>
-                    <div className={"flex-row-item-3 " + addBorderVHF1()}>
-                        <p>{handleStandByVHF1()}</p>
-                        <p className={"stby-freq"}>123.124</p>
-                    </div>
+                <div className={"flex-column-item-1"}>
+                    <Button type={ButtonType.Left} children={"⬤"}/>
+                    <Button type={ButtonType.Left} children={"⬤"}/>
+                    <Button type={ButtonType.Left} children={"⬤"}/>
+                    <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
                 </div>
-                <div className="page-splitter"/>
-                <div className={"flex-row"}>
-                    <div className={"flex-row-item-1"}>
-                        <Input value={VHF2} characterLimit={7} placeholder={"173." +
-                        "800"} type={"text"} onChange={handleChangeVHF2}/>
-                        {checkSelectVHF2()}
+                <div className={"screen"}>
+                    <div className={"flex-row"}>
+                        <div className={"flex-row-item-1"}>
+                            <Input value={VHF1} characterLimit={7} placeholder={"123.300"} type={"text"} onChange={handleChangeVHF1}/>
+                            {checkSelectVHF1()}
+                        </div>
+                        <div className={"flex-row-item-2"}>
+                            <h2 className={addHighlightVHF1()}>VHF1</h2>
+                        </div>
+                        <div className={"flex-row-item-3 " + addBorderVHF1()}>
+                            <p>{handleStandByVHF1()}</p>
+                            <p className={addSTBYColourVHF1()}>123.124</p>
+                        </div>
                     </div>
-                    <div className={"flex-row-item-2"}>
-                        <h2 className={addHighlightVHF2()}>VHF2</h2>
+                    <div className="page-splitter"/>
+                    <div className={"flex-row"}>
+                        <div className={"flex-row-item-1"}>
+                            <Input value={VHF2} characterLimit={7} placeholder={"173." +
+                            "800"} type={"text"} onChange={handleChangeVHF2}/>
+                            {checkSelectVHF2()}
+                        </div>
+                        <div className={"flex-row-item-2"}>
+                            <h2 className={addHighlightVHF2()}>VHF2</h2>
+                        </div>
+                        <div className={"flex-row-item-3 " + addBorderVHF2()}>
+                            <p>{handleStandByVHF2()}</p>
+                            <p className={addSTBYColourVHF2()}>123.124</p>
+                        </div>
                     </div>
-                    <div className={"flex-row-item-3 " + addBorderVHF2()}>
-                        <p>{handleStandByVHF2()}</p>
-                        <p className={"stby-freq"}>123.124</p>
+                    <div className="page-splitter"/>
+                    <div className={"flex-row"}>
+                        <div className={"flex-row-item-1"}>
+                            <Input value={VHF3} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF3}/>
+                        </div>
+                        <div className={"flex-row-item-2"}>
+                            <h2>VHF3</h2>
+                        </div>
+                        <div className={"flex-row-item-3"}>
+                            <p>123.124</p>
+                        </div>
                     </div>
+                    <div className="page-splitter"/>
+                    <p style={{marginTop: 10}}>SQUAWK: 7000</p>
                 </div>
-                <div className="page-splitter"/>
-                <div className={"flex-row"}>
-                    <div className={"flex-row-item-1"}>
-                        <Input value={VHF3} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF3}/>
-                    </div>
-                    <div className={"flex-row-item-2"}>
-                        <h2>VHF3</h2>
-                    </div>
-                    <div className={"flex-row-item-3"}>
-                        <p className={"stby-freq"}>123.124</p>
-                    </div>
+                <div className={"flex-column-item-2"}>
+                    <Button type={ButtonType.Right} children={"▬"}/>
+                    <Button type={ButtonType.Right} children={"▬"}/>
+                    <Button type={ButtonType.Right} children={"▬"}/>
+                    <Button type={ButtonType.Right} children={"RST"} className={"alt-btn"}/>
                 </div>
-                <div className="page-splitter"/>
             </div>
+
+
+
             <div className={"flex-row"}>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + addColourVHF1()} onClick={handleSelectVHF1}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
