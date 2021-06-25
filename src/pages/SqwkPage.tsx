@@ -19,7 +19,7 @@ export const SqwkPage = () => {
 
     return (
         <div className={"page"}>
-            <div className={"flex-row"}>
+            <div className={"flex-row main-button-group"}>
                 <Button type={ButtonType.Main} children={"VHF"} onClick={() => history.push("/vhs")}/>
                 <Button type={ButtonType.Main} children={"HF"}/>
                 <Button type={ButtonType.Main} children={"TEL"}/>

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './VhfPage.scss';
 import {useHistory} from "react-router-dom";
-import {useState} from "react";
 
 // COMPONENTS
 import {Input} from "../components/Input"
@@ -16,6 +15,24 @@ export const VhfPage = () => {
     const [VHF3, setVHF3] = useState<string>("");
 
     const [currentVFH, setCurrentVHF] = useState<"VHF1" | "VHF2">("VHF1");
+
+    useEffect(() => {
+        setVHF1(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF1")) || ""));
+        setVHF2(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF2")) || ""));
+    }, []);
+
+    useEffect(() => {
+        window.localStorage.setItem("VHF1", VHF1);
+        window.localStorage.setItem("VHF2", VHF2);
+    }, [VHF1, VHF2]);
+
+    function clearStateVHF1() {
+        setVHF1("");
+    }
+
+    function clearStateVHF2() {
+        setVHF2("");
+    }
 
     // HANDLE VALUE CHANGES IN VHF
 
@@ -146,7 +163,7 @@ export const VhfPage = () => {
 
     return (
         <div className={"page"}>
-            <div className={"flex-row"}>
+            <div className={"flex-row main-button-group"}>
                 <Button type={ButtonType.Main} children={"VHF"} onClick={() => history.push("/vhs")}/>
                 <Button type={ButtonType.Main} children={"HF"}/>
                 <Button type={ButtonType.Main} children={"TEL"}/>
@@ -157,8 +174,8 @@ export const VhfPage = () => {
             </div>
             <div className={"flex-column"}>
                 <div className={"flex-column-item-1"}>
-                    <Button type={ButtonType.Left} children={"⬤"}/>
-                    <Button type={ButtonType.Left} children={"⬤"}/>
+                    <Button type={ButtonType.Left} children={"⬤"} onClick={clearStateVHF1}/>
+                    <Button type={ButtonType.Left} children={"⬤"} onClick={clearStateVHF2}/>
                     <Button type={ButtonType.Left} children={"⬤"}/>
                     <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
                 </div>
