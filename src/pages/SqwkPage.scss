@@ -120,7 +120,6 @@ div .flex-row  {
   color: #63a3e3;
 }
 
-
 .flex-column-main {
   display: flex;
   flex-direction: column;
@@ -131,20 +130,32 @@ div .flex-row  {
 .flex-column-1 {
   display: flex;
   flex-direction: column;
+  margin: 50px 0 0;
+}
+
+.flex-column-1 {
+  letter-spacing: 3px;
+  color: lawngreen;
 }
 
 .flex-column-2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 40px 0 60px;
 }
 
 .flex-column-2 Input, Input::placeholder {
   text-align: center;
 }
 
+.flex-column-2 p {
+  margin-bottom: 10px;
+}
+
 .flex-column-3 {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
+  margin-bottom: 30px;
 }

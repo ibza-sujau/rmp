@@ -48,6 +48,7 @@ export const SqwkPage = () => {
                             <p>* IDENT</p>
                         </div>
                     </div>
+                    <div className="page-splitter"/>
                 </div>
                 <div className={"flex-column-item-2"}>
                     <Button type={ButtonType.Right} children={"▬"}/>
