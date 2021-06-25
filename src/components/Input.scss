@@ -6,7 +6,6 @@ input {
   font-family: "ECAM Regular", serif !important;
   background-color: transparent;
   text-transform: uppercase;
-  text-align: left;
   color: white;
   padding: 0;
   width: 95%;
@@ -14,7 +13,6 @@ input {
 
 input::placeholder {
   color: white;
-  text-align: left;
   font-weight: 100;
 }
 

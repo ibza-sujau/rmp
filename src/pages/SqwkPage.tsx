@@ -11,7 +11,11 @@ export const SqwkPage = () => {
 
     const history = useHistory();
 
-    const [SQWK, setSQWK] = useState<string>("7000");
+    const [SQWK, setSQWK] = useState<string>("");
+
+    function handleChangeSQWK(event: any) {
+        setSQWK(event.target.value);
+    }
 
     return (
         <div className={"page"}>
@@ -32,13 +36,16 @@ export const SqwkPage = () => {
                     <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
                 </div>
                 <div className={"screen"}>
-                    <div className={"flex-column"}>
-                        <div className={"flex-column-item-1"}>
+                    <div className={"flex-column-main"}>
+                        <div className={"flex-column-1"}>
                             <p>AUTO</p>
                         </div>
-                        <div className={"flex-column-item-2"}>
-                            <p>AUTO</p>
-                            <Input type={"text"} value={} placeholder={} characterLimit={}
+                        <div className={"flex-column-2"}>
+                            <p>SQWK</p>
+                            <Input value={SQWK} characterLimit={4} placeholder={"7000"} type={"text"} onChange={handleChangeSQWK}/>
+                        </div>
+                        <div className={"flex-column-3"}>
+                            <p>* IDENT</p>
                         </div>
                     </div>
                 </div>

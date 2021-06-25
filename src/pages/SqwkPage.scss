@@ -90,6 +90,11 @@ div .flex-row  {
   flex-direction: column;
 }
 
+.flex-column-item-3 {
+  display: flex;
+  flex-direction: column;
+}
+
 // MISC
 
 .highlight {
@@ -113,4 +118,33 @@ div .flex-row  {
 
 .stby-freq {
   color: #63a3e3;
+}
+
+
+.flex-column-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+
+.flex-column-1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-column-2 Input, Input::placeholder {
+  text-align: center;
+}
+
+.flex-column-3 {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
 }
