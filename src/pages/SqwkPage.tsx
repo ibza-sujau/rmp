@@ -77,8 +77,6 @@ export const SqwkPage = () => {
                 </div>
             </div>
 
-
-
             <div className={"flex-row"}>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + addColourVHF1()}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
