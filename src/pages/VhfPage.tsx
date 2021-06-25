@@ -182,7 +182,7 @@ export const VhfPage = () => {
                 <div className={"screen"}>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input value={VHF1} characterLimit={7} placeholder={"123.300"} type={"text"} onChange={handleChangeVHF1}/>
+                            <Input value={VHF1} characterLimit={7} placeholder={"000.000"} type={"text"} onChange={handleChangeVHF1}/>
                             {checkSelectVHF1()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -196,8 +196,7 @@ export const VhfPage = () => {
                     <div className="page-splitter"/>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input value={VHF2} characterLimit={7} placeholder={"173." +
-                            "800"} type={"text"} onChange={handleChangeVHF2}/>
+                            <Input value={VHF2} characterLimit={7} placeholder={"000.000"} type={"text"} onChange={handleChangeVHF2}/>
                             {checkSelectVHF2()}
                         </div>
                         <div className={"flex-row-item-2"}>

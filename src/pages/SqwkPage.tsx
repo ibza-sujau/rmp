@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './SqwkPage.scss';
 import {useHistory} from "react-router-dom";
-import {useState} from "react";
 
 // COMPONENTS
 import {Input} from "../components/Input"
@@ -12,6 +11,14 @@ export const SqwkPage = () => {
     const history = useHistory();
 
     const [SQWK, setSQWK] = useState<string>("");
+
+    useEffect(() => {
+        setSQWK(JSON.parse(JSON.stringify(window.localStorage.getItem("SQWK")) || ""));
+    }, []);
+
+    useEffect(() => {
+        window.localStorage.setItem("SQWK", SQWK);
+    }, [SQWK]);
 
     function handleChangeSQWK(event: any) {
         setSQWK(event.target.value);
@@ -42,7 +49,7 @@ export const SqwkPage = () => {
                         </div>
                         <div className={"flex-column-2"}>
                             <p>SQWK</p>
-                            <Input value={SQWK} characterLimit={4} placeholder={"7000"} type={"text"} onChange={handleChangeSQWK}/>
+                            <Input value={SQWK} characterLimit={4} placeholder={"0000"} type={"text"} onChange={handleChangeSQWK}/>
                         </div>
                         <div className={"flex-column-3"}>
                             <p>* IDENT</p>
