@@ -3,20 +3,114 @@
   src: url("../assets/ECAMFontRegular.ttf");
 }
 
-.page {
-  font-family: "ECAM Regular", serif;
+* {
+  font-family: "ECAM Regular", serif !important;
+  font-weight: 100 !important;
+  margin: 0;
 }
 
-.rmp {
-  width: 680px;
-  height: 900px;
+.page {
+  width: 660px;
+  height: 852px;
   margin: 0 auto;
   background: #7e9bbb;
   border-radius: 20px;
+  color: white;
 }
 
-.btn-group {
+.page-splitter {
   position: relative;
-  left: 90px;
-  top: 20px;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+}
+
+.screen {
+  position: relative;
+  padding: 0 15px 30px;
+  width: 480px;
+  height: 265px;
+  margin: 40px auto;
+  background-color: black;
+  border-radius: 10px;
+}
+
+// FLEXBOX ROW
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+div .flex-row  {
+  width: 480px;
+  height: 62px;
+}
+
+.flex-row-item-1 {
+  display: flex;
+  flex: 2;
+}
+
+.flex-row-item-2 {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.flex-row-item-3 {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+// FLEXBOX COLUMN
+
+
+.flex-column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: center;
+}
+
+.flex-column-item-1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-item-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+// MISC
+
+.highlight {
+  background-color: lawngreen;
+  color: black !important;
+}
+
+
+.alt-btn {
+  color: #373737 !important;
+}
+
+.active-vhf::first-line {
+  color: lawngreen !important;
+}
+
+.stby-border {
+  border: 1px solid;
+  line-height: 30px;
+}
+
+.stby-freq {
+  color: #63a3e3;
 }
