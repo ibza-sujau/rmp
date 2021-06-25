@@ -74,21 +74,21 @@ export const VhfPage = () => {
         } else return;
     }
 
-    // CALL BUTTON COLOUR CHANGE
+    // ADD COLOUR
 
-    function handleColorChangeVHF2() {
-        if (currentVFH === "VHF2") {
-            return "active-vhf"
-        } else return;
-    }
-
-    function handleColorChangeVHF1() {
+    function addColourVHF1() {
         if (currentVFH === "VHF1") {
             return "active-vhf"
         } else return;
     }
 
-    // HANDLE STBY CHANGE
+    function addColourVHF2() {
+        if (currentVFH === "VHF2") {
+            return "active-vhf"
+        } else return;
+    }
+
+    // ADD STBY TEXT
 
     function handleStandByVHF1() {
         if (currentVFH === "VHF1") {
@@ -101,6 +101,35 @@ export const VhfPage = () => {
             return "STBY";
         } else return;
     }
+
+    // ADD BORDER
+
+    function addBorderVHF1() {
+        if (currentVFH === "VHF1") {
+            return "active-vhf-border";
+        } else return;
+    }
+
+    function addBorderVHF2() {
+        if (currentVFH === "VHF2") {
+            return "active-vhf-border";
+        } else return;
+    }
+
+    // ADD HIGHLIGHT
+
+    function addHighlightVHF1() {
+        if (currentVFH === "VHF1") {
+            return "highlight";
+        } else return;
+    }
+
+    function addHighlightVHF2() {
+        if (currentVFH === "VHF2") {
+            return "highlight";
+        } else return;
+    }
+
 
     return (
         <div className={"page"}>
@@ -131,12 +160,12 @@ export const VhfPage = () => {
                         <Input value={VHF1} characterLimit={7} placeholder={"123.300"} type={"text"} onChange={handleChangeVHF1}/>
                         {checkSelectVHF1()}
                     </div>
-                    <div className={"flex-row-item-2 highlight"}>
-                        <h2>VHF1</h2>
+                    <div className={"flex-row-item-2"}>
+                        <h2 className={addHighlightVHF1()}>VHF1</h2>
                     </div>
-                    <div className={"flex-row-item-3"}>
+                    <div className={"flex-row-item-3 " + addBorderVHF1()}>
                         <p>{handleStandByVHF1()}</p>
-                        <p>123.124</p>
+                        <p className={"stby-freq"}>123.124</p>
                     </div>
                 </div>
                 <div className="page-splitter"/>
@@ -147,11 +176,11 @@ export const VhfPage = () => {
                         {checkSelectVHF2()}
                     </div>
                     <div className={"flex-row-item-2"}>
-                        <h2>VHF2</h2>
+                        <h2 className={addHighlightVHF2()}>VHF2</h2>
                     </div>
-                    <div className={"flex-row-item-3"}>
+                    <div className={"flex-row-item-3 " + addBorderVHF2()}>
                         <p>{handleStandByVHF2()}</p>
-                        <p>123.124</p>
+                        <p className={"stby-freq"}>123.124</p>
                     </div>
                 </div>
                 <div className="page-splitter"/>
@@ -163,18 +192,18 @@ export const VhfPage = () => {
                         <h2>VHF3</h2>
                     </div>
                     <div className={"flex-row-item-3"}>
-                        <p>123.124</p>
+                        <p className={"stby-freq"}>123.124</p>
                     </div>
                 </div>
                 <div className="page-splitter"/>
             </div>
             <div className={"flex-row"}>
-                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + handleColorChangeVHF1()} onClick={handleSelectVHF1}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + addColourVHF1()} onClick={handleSelectVHF1}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
             <div className={"flex-row"}>
-                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + handleColorChangeVHF2()} onClick={handleSelectVHF2}/>
+                <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn " + addColourVHF2()} onClick={handleSelectVHF2}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
                 <Button type={ButtonType.Main} children={"≡≡≡\nCALL"} className={"alt-btn"}/>
             </div>
