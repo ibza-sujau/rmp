@@ -3,7 +3,7 @@ import './VhfPage.scss';
 import {useHistory} from "react-router-dom";
 
 // COMPONENTS
-import {Input} from "../components/Input"
+import {Input, InputType} from "../components/Input"
 import {Button, ButtonType} from "../components/Button";
 
 export const VhfPage = () => {
@@ -163,6 +163,14 @@ export const VhfPage = () => {
         } else return;
     }
 
+    function changeValueToSTBYVHF1() {
+        setST
+    }
+
+    function changeValueToSTBYVHF1() {
+        setVHF1(window.localStorage)
+    }
+
     return (
         <div className={"page"}>
             <div className={"flex-row main-button-group"}>
@@ -176,15 +184,15 @@ export const VhfPage = () => {
             </div>
             <div className={"flex-column"}>
                 <div className={"flex-column-item-1"}>
-                    <Button type={ButtonType.Left} children={"⬤"} onClick={clearStateVHF1}/>
-                    <Button type={ButtonType.Left} children={"⬤"} onClick={clearStateVHF2}/>
+                    <Button type={ButtonType.Left} children={"⬤"} onClick={changeValueToSTBYVHF1}/>
+                    <Button type={ButtonType.Left} children={"⬤"} onClick={changeValueToSTBYVHF2}/>
                     <Button type={ButtonType.Left} children={"⬤"}/>
                     <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
                 </div>
                 <div className={"screen"}>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input value={VHF1} characterLimit={7} placeholder={"000.000"} type={"text"} onChange={handleChangeVHF1}/>
+                            <Input inputType={InputType.VHF} value={VHF1} characterLimit={7} placeholder={"000.000"} type={"text"} onChange={handleChangeVHF1}/>
                             {checkSelectVHF1()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -198,7 +206,7 @@ export const VhfPage = () => {
                     <div className="page-splitter"/>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input value={VHF2} characterLimit={7} placeholder={"000.000"} type={"text"} onChange={handleChangeVHF2}/>
+                            <Input inputType={InputType.VHF} value={VHF2} characterLimit={7} placeholder={"000.000"} type={"text"} onChange={handleChangeVHF2}/>
                             {checkSelectVHF2()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -212,7 +220,7 @@ export const VhfPage = () => {
                     <div className="page-splitter"/>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input value={VHF3} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF3}/>
+                            <Input inputType={InputType.VHF} value={VHF3} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF3}/>
                         </div>
                         <div className={"flex-row-item-2"}>
                             <h2>VHF3</h2>
