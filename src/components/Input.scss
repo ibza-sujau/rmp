@@ -1,3 +1,5 @@
+// VHF INPUT
+
 .vhf-input {
   position: relative;
   border: 0 solid;
@@ -16,28 +18,33 @@
   font-weight: 100;
 }
 
-.vhf-input textarea:focus input:focus{
+.vhf-input textarea:focus, input:focus{
   outline: none;
 }
 
+// STBY INPUT
+
 .stby-input {
+  padding: 0;
+  width: 95%;
+  text-align: center;
   position: relative;
   border: 0 solid;
-  font-size: 35px;
+  font-size: 15px;
   font-weight: lighter !important;
   font-family: "ECAM Regular", serif !important;
   background-color: transparent;
   text-transform: uppercase;
   color: white;
-  padding: 0;
-  width: 95%;
+  margin-bottom: 7px;
 }
 
 .stby-input::placeholder {
+  text-align: center;
   color: white;
   font-weight: 100;
 }
 
-.stby-input textarea:focus input:focus{
+.stby-input textarea:focus, input:focus{
   outline: none;
 }

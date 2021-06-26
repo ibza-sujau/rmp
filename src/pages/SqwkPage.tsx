@@ -3,7 +3,7 @@ import './SqwkPage.scss';
 import {useHistory} from "react-router-dom";
 
 // COMPONENTS
-import {Input} from "../components/Input"
+import {Input, InputType} from "../components/Input"
 import {Button, ButtonType} from "../components/Button";
 
 export const SqwkPage = () => {
@@ -61,7 +61,7 @@ export const SqwkPage = () => {
                         </div>
                         <div className={"flex-column-2"}>
                             <p>SQWK</p>
-                            <Input value={SQWK} characterLimit={4} placeholder={"0000"} type={"text"} onChange={handleChangeSQWK}/>
+                            <Input inputType={InputType.VHF} value={SQWK} characterLimit={4} placeholder={"0000"} type={"text"} onChange={handleChangeSQWK}/>
                         </div>
                         <div className={"flex-column-3"}>
                             <p>* IDENT</p>
