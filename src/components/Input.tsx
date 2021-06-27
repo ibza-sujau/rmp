@@ -7,15 +7,14 @@ export enum InputType {
 }
 
 type InputProps = {
-    type: string,
     inputType: InputType,
-    value: string,
-    placeholder: string,
+    value: number,
+    placeholder?: string,
     characterLimit: number,
-    defaultValue?: any,
     className?: string,
     onClick?: () => void,
     onChange?: (event: any) => void,
+    onBlur?: () => void,
     selected?: boolean,
 }
 
@@ -23,11 +22,11 @@ export const Input = (props: InputProps) => {
     switch(props.inputType) {
         case InputType.VHF:
             return (
-                <input value={props.value} type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"vhf-input " + props.className} onChange={props.onChange} onClick={props.onClick}/>
+                <input value={props.value} onBlur={props.onBlur} placeholder={props.placeholder} type={"number"} maxLength={props.characterLimit} className={"vhf-input " + props.className} onChange={props.onChange} onClick={props.onClick}/>
             )
         case InputType.STBY:
             return (
-                <input value={props.value} type={props.type} placeholder={props.placeholder} maxLength={props.characterLimit} className={"stby-input " + props.className} onChange={props.onChange} onClick={props.onClick}/>
+                <input value={props.value} onBlur={props.onBlur} placeholder={props.placeholder} type={"number"} maxLength={props.characterLimit} className={"stby-input " + props.className} onChange={props.onChange} onClick={props.onClick}/>
             )
     }
 }

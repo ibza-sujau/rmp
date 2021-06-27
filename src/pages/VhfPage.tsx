@@ -10,18 +10,19 @@ export const VhfPage = () => {
 
     const history = useHistory();
 
-    const [VHF1, setVHF1] = useState<string>("");
-    const [VHF2, setVHF2] = useState<string>("");
-    const [VHF3, setVHF3] = useState<string>("");
-    const [STBY1, setSTBY1] = useState<string>("");
-    const [STBY2, setSTBY2] = useState<string>("");
-    const [STBY3, setSTBY3] = useState<string>("");
+    const [VHF1, setVHF1] = useState<number>(0);
+    const [VHF2, setVHF2] = useState<number>(0);
+    const [VHF3, setVHF3] = useState<number>(0);
+    const [STBY1, setSTBY1] = useState<number>(0);
+    const [STBY2, setSTBY2] = useState<number>(0);
+    const [STBY3, setSTBY3] = useState<number>(0);
 
     const [currentVFH, setCurrentVHF] = useState<"VHF1" | "VHF2">("VHF1");
 
     useEffect(() => {
         setVHF1(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF1")) || ""));
         setVHF2(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF2")) || ""));
+        setVHF3(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF3")) || ""));
         setSTBY1(JSON.parse(JSON.stringify(window.localStorage.getItem("STBY1")) || ""));
         setSTBY2(JSON.parse(JSON.stringify(window.localStorage.getItem("STBY2")) || ""));
         setSTBY3(JSON.parse(JSON.stringify(window.localStorage.getItem("STBY3")) || ""));
@@ -29,86 +30,39 @@ export const VhfPage = () => {
     }, []);
 
     useEffect(() => {
-        window.localStorage.setItem("VHF1", VHF1);
-        window.localStorage.setItem("VHF2", VHF2);
-        window.localStorage.setItem("STBY1", STBY1);
-        window.localStorage.setItem("STBY2", STBY2);
-        window.localStorage.setItem("STBY3", STBY3);
+        window.localStorage.setItem("VHF1", VHF1.toString());
+        window.localStorage.setItem("VHF2", VHF2.toString());
+        window.localStorage.setItem("VHF3", VHF3.toString());
+        window.localStorage.setItem("STBY1", STBY1.toString());
+        window.localStorage.setItem("STBY2", STBY2.toString());
+        window.localStorage.setItem("STBY3", STBY3.toString());
         window.localStorage.setItem("currentVHF", currentVFH);
-    }, [VHF1, VHF2, currentVFH, STBY1, STBY2, STBY3]);
+    }, [VHF1, VHF2, VHF3, STBY1, STBY2, STBY3, currentVFH]);
 
     // HANDLE VALUE CHANGES IN VHF
 
     function handleChangeVHF1(event: any) {
         setVHF1(event.target.value);
-        /*try {
-            if (event.target.value < 118.000 && event.target.value > 137.000) {
-                setVHF1(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }*/
     }
 
     function handleChangeVHF2(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 && numValue > 137.000) {
-                setVHF2(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setVHF2(event.target.value);
     }
 
     function handleChangeVHF3(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 && numValue > 137.000) {
-                setVHF3(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setVHF3(event.target.value);
     }
 
     function handleChangeSTBY1(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 && numValue > 137.000) {
-                setSTBY1(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setSTBY1(event.target.value);
     }
 
     function handleChangeSTBY2(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 && numValue > 137.000) {
-                setSTBY2(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setSTBY2(event.target.value);
     }
 
     function handleChangeSTBY3(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 || numValue > 137.000) {
-                setSTBY3(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setSTBY3(event.target.value);
     }
 
     // SELECT VHF
@@ -234,6 +188,61 @@ export const VhfPage = () => {
         setSTBY2(VHF2);
     }
 
+    function switchValueVHF3() {
+        setVHF3(STBY3);
+        setSTBY3(VHF3);
+    }
+
+    // VALIDATE VALUE
+
+    function validateValueVHF1() {
+        if (VHF1 <= 137.000 && VHF1 >= 118.000) {
+            return VHF1;
+        } else {
+            setVHF1(0);
+        }
+    }
+
+    function validateValueVHF2() {
+        if (VHF2 <= 137.000 && VHF2 >= 118.000) {
+            return VHF2;
+        } else {
+            setVHF2(0);
+        }
+    }
+
+    function validateValueVHF3() {
+        if (VHF3 <= 137.000 && VHF3 >= 118.000) {
+            return VHF3;
+        } else {
+            setVHF3(0);
+        }
+    }
+
+    function validateValueSTBY1() {
+        if (STBY1 <= 137.000 && STBY1 >= 118.000) {
+            return STBY1;
+        } else {
+            setSTBY1(0);
+        }
+    }
+
+    function validateValueSTBY2() {
+        if (STBY2 <= 137.000 && STBY2 >= 118.000) {
+            return STBY2;
+        } else {
+            setSTBY2(0);
+        }
+    }
+
+    function validateValueSTBY3() {
+        if (STBY3 <= 137.000 && STBY3 >= 118.000) {
+            return STBY3;
+        } else {
+            setSTBY3(0);
+        }
+    }
+
     return (
         <div className={"page"}>
             <div className={"flex-row main-button-group"}>
@@ -249,13 +258,13 @@ export const VhfPage = () => {
                 <div className={"flex-column-item-1"}>
                     <Button type={ButtonType.Left} children={"⬤"} onClick={switchValueVHF1}/>
                     <Button type={ButtonType.Left} children={"⬤"} onClick={switchValueVHF2}/>
-                    <Button type={ButtonType.Left} children={"⬤"}/>
+                    <Button type={ButtonType.Left} children={"⬤"} onClick={switchValueVHF3}/>
                     <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
                 </div>
                 <div className={"screen"}>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input type={"number"} inputType={InputType.VHF} value={VHF1} characterLimit={7} placeholder={"000.000"} onChange={handleChangeVHF1}/>
+                            <Input inputType={InputType.VHF} value={VHF1} characterLimit={7} onChange={handleChangeVHF1} onBlur={validateValueVHF1}/>
                             {checkSelectVHF1()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -263,13 +272,13 @@ export const VhfPage = () => {
                         </div>
                         <div className={"flex-row-item-3 " + addBorderVHF1()}>
                             <p>{handleStandByVHF1()}</p>
-                            <Input type={"number"} inputType={InputType.STBY} value={STBY1} placeholder={"000.000"} characterLimit={7} className={addSTBYColourVHF1()} onChange={handleChangeSTBY1}/>
+                            <Input inputType={InputType.STBY} value={STBY1} placeholder={""} characterLimit={7} onChange={handleChangeSTBY1} className={addSTBYColourVHF1()} onBlur={validateValueSTBY1}/>
                         </div>
                     </div>
                     <div className="page-splitter"/>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input type={"number"} inputType={InputType.VHF} value={VHF2} characterLimit={7} placeholder={"000.000"} onChange={handleChangeVHF2}/>
+                            <Input inputType={InputType.VHF} value={VHF2} characterLimit={7} onChange={handleChangeVHF2} onBlur={validateValueVHF2}/>
                             {checkSelectVHF2()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -277,19 +286,19 @@ export const VhfPage = () => {
                         </div>
                         <div className={"flex-row-item-3 " + addBorderVHF2()}>
                             <p>{handleStandByVHF2()}</p>
-                            <Input type={"text"} inputType={InputType.STBY} value={STBY2} placeholder={"000.000"} characterLimit={7} className={addSTBYColourVHF2()} onChange={handleChangeSTBY2}/>
+                            <Input inputType={InputType.STBY} value={STBY2} characterLimit={7} onChange={handleChangeSTBY2} className={addSTBYColourVHF2()} onBlur={validateValueSTBY2}/>
                         </div>
                     </div>
                     <div className="page-splitter"/>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input type={"number"} inputType={InputType.VHF} value={VHF3} characterLimit={7} placeholder={"DATA"} onChange={handleChangeVHF3}/>
+                            <Input inputType={InputType.VHF} value={VHF3} characterLimit={7} onChange={handleChangeVHF3} onBlur={validateValueVHF3}/>
                         </div>
                         <div className={"flex-row-item-2"}>
                             <h2>VHF3</h2>
                         </div>
                         <div className={"flex-row-item-3"}>
-                            <Input type={"text"} inputType={InputType.STBY} value={STBY3} placeholder={"000.000"} characterLimit={7} onChange={handleChangeSTBY3}/>
+                            <Input inputType={InputType.STBY} value={STBY3} characterLimit={7} onChange={handleChangeSTBY3} onBlur={validateValueSTBY3}/>
                         </div>
                     </div>
                     <div className="page-splitter"/>
