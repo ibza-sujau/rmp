@@ -17,7 +17,7 @@ export const SqwkPage = () => {
     }, []);
 
     useEffect(() => {
-        window.localStorage.setItem("SQWK", JSON.stringify(SQWK));
+        window.localStorage.setItem("SQWK", SQWK.toString());
     }, [SQWK]);
 
     function handleChangeSQWK(event: any) {

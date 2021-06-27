@@ -30,13 +30,14 @@ export const VhfPage = () => {
     }, []);
 
     useEffect(() => {
-        window.localStorage.setItem("VHF1", JSON.stringify(VHF1));
-        window.localStorage.setItem("VHF2", JSON.stringify(VHF2));
-        window.localStorage.setItem("VHF3", JSON.stringify(VHF3));
-        window.localStorage.setItem("STBY1", JSON.stringify(STBY1));
-        window.localStorage.setItem("STBY2", JSON.stringify(STBY2));
-        window.localStorage.setItem("STBY3", JSON.stringify(STBY3));
+        window.localStorage.setItem("VHF1", VHF1.toString());
+        window.localStorage.setItem("VHF2", VHF2.toString());
+        window.localStorage.setItem("VHF3", VHF3.toString());
+        window.localStorage.setItem("STBY1", STBY1.toString());
+        window.localStorage.setItem("STBY2", STBY2.toString());
+        window.localStorage.setItem("STBY3", STBY3.toString());
         window.localStorage.setItem("currentVHF", currentVFH);
+        console.log(VHF1, VHF2)
     }, [VHF1, VHF2, VHF3, currentVFH, STBY1, STBY2, STBY3]);
 
     // HANDLE VALUE CHANGES IN VHF
