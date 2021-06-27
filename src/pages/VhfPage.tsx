@@ -41,26 +41,74 @@ export const VhfPage = () => {
 
     function handleChangeVHF1(event: any) {
         setVHF1(event.target.value);
+        /*try {
+            if (event.target.value < 118.000 && event.target.value > 137.000) {
+                setVHF1(event.target.value);
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }*/
     }
 
     function handleChangeVHF2(event: any) {
-        setVHF2(event.target.value);
+        try {
+            const numValue = parseFloat(event.target.value)
+            if (numValue < 118.000 && numValue > 137.000) {
+                setVHF2(event.target.value);
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     function handleChangeVHF3(event: any) {
-        setVHF3(event.target.value);
+        try {
+            const numValue = parseFloat(event.target.value)
+            if (numValue < 118.000 && numValue > 137.000) {
+                setVHF3(event.target.value);
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     function handleChangeSTBY1(event: any) {
-        setSTBY1(event.target.value);
+        try {
+            const numValue = parseFloat(event.target.value)
+            if (numValue < 118.000 && numValue > 137.000) {
+                setSTBY1(event.target.value);
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     function handleChangeSTBY2(event: any) {
-        setSTBY2(event.target.value);
+        try {
+            const numValue = parseFloat(event.target.value)
+            if (numValue < 118.000 && numValue > 137.000) {
+                setSTBY2(event.target.value);
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     function handleChangeSTBY3(event: any) {
-        setSTBY3(event.target.value);
+        try {
+            const numValue = parseFloat(event.target.value)
+            if (numValue < 118.000 || numValue > 137.000) {
+                setSTBY3(event.target.value);
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     // SELECT VHF
@@ -207,7 +255,7 @@ export const VhfPage = () => {
                 <div className={"screen"}>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input inputType={InputType.VHF} value={VHF1} characterLimit={7} placeholder={"000.000"} type={"text"} onChange={handleChangeVHF1}/>
+                            <Input type={"number"} inputType={InputType.VHF} value={VHF1} characterLimit={7} placeholder={"000.000"} onChange={handleChangeVHF1}/>
                             {checkSelectVHF1()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -215,13 +263,13 @@ export const VhfPage = () => {
                         </div>
                         <div className={"flex-row-item-3 " + addBorderVHF1()}>
                             <p>{handleStandByVHF1()}</p>
-                            <Input type={"text"} inputType={InputType.STBY} value={STBY1} placeholder={"000.000"} characterLimit={7} className={addSTBYColourVHF1()} onChange={handleChangeSTBY1}/>
+                            <Input type={"number"} inputType={InputType.STBY} value={STBY1} placeholder={"000.000"} characterLimit={7} className={addSTBYColourVHF1()} onChange={handleChangeSTBY1}/>
                         </div>
                     </div>
                     <div className="page-splitter"/>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input inputType={InputType.VHF} value={VHF2} characterLimit={7} placeholder={"000.000"} type={"text"} onChange={handleChangeVHF2}/>
+                            <Input type={"number"} inputType={InputType.VHF} value={VHF2} characterLimit={7} placeholder={"000.000"} onChange={handleChangeVHF2}/>
                             {checkSelectVHF2()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -235,7 +283,7 @@ export const VhfPage = () => {
                     <div className="page-splitter"/>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input inputType={InputType.VHF} value={VHF3} characterLimit={7} placeholder={"DATA"} type={"text"} onChange={handleChangeVHF3}/>
+                            <Input type={"number"} inputType={InputType.VHF} value={VHF3} characterLimit={7} placeholder={"DATA"} onChange={handleChangeVHF3}/>
                         </div>
                         <div className={"flex-row-item-2"}>
                             <h2>VHF3</h2>

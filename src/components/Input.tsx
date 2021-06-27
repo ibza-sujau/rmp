@@ -7,7 +7,7 @@ export enum InputType {
 }
 
 type InputProps = {
-    type: "text" | "number",
+    type: string,
     inputType: InputType,
     value: string,
     placeholder: string,

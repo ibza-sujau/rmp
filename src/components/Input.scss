@@ -30,7 +30,7 @@
   text-align: center;
   position: relative;
   border: 0 solid;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: lighter !important;
   font-family: "ECAM Regular", serif !important;
   background-color: transparent;
@@ -47,4 +47,15 @@
 
 .stby-input textarea:focus, input:focus{
   outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
