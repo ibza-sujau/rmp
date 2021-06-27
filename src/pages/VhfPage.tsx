@@ -179,7 +179,7 @@ export const VhfPage = () => {
         } else return;
     }
 
-    /*function switchValueVHF1() {
+    function switchValueVHF1() {
         setVHF1(STBY1);
         setSTBY1(VHF1);
     }
@@ -187,7 +187,7 @@ export const VhfPage = () => {
     function switchValueVHF2() {
         setVHF2(STBY2);
         setSTBY2(VHF2);
-    }*/
+    }
 
     return (
         <div className={"page"}>
@@ -202,15 +202,15 @@ export const VhfPage = () => {
             </div>
             <div className={"flex-column"}>
                 <div className={"flex-column-item-1"}>
-                    <Button type={ButtonType.Left} children={"⬤"}/>
-                    <Button type={ButtonType.Left} children={"⬤"}/>
+                    <Button type={ButtonType.Left} children={"⬤"} onClick={switchValueVHF1}/>
+                    <Button type={ButtonType.Left} children={"⬤"} onClick={switchValueVHF2}/>
                     <Button type={ButtonType.Left} children={"⬤"}/>
                     <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
                 </div>
                 <div className={"screen"}>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input inputType={InputType.VHF} value={VHF1} characterLimit={7}  onChange={handleChangeVHF1}/>
+                            <Input inputType={InputType.VHF} value={VHF1} characterLimit={7} onChange={handleChangeVHF1}/>
                             {checkSelectVHF1()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -218,7 +218,7 @@ export const VhfPage = () => {
                         </div>
                         <div className={"flex-row-item-3 " + addBorderVHF1()}>
                             <p>{handleStandByVHF1()}</p>
-                            <Input inputType={InputType.STBY} value={STBY1} characterLimit={7} className={addSTBYColourVHF1()} onChange={handleChangeSTBY1}/>
+                            <Input inputType={InputType.STBY} value={STBY1} characterLimit={7} onChange={handleChangeSTBY1} className={addSTBYColourVHF1()}/>
                         </div>
                     </div>
                     <div className="page-splitter"/>
@@ -232,7 +232,7 @@ export const VhfPage = () => {
                         </div>
                         <div className={"flex-row-item-3 " + addBorderVHF2()}>
                             <p>{handleStandByVHF2()}</p>
-                            <Input inputType={InputType.STBY} value={STBY2} characterLimit={7} className={addSTBYColourVHF2()} onChange={handleChangeSTBY2}/>
+                            <Input inputType={InputType.STBY} value={STBY2} characterLimit={7} onChange={handleChangeSTBY2} className={addSTBYColourVHF2()}/>
                         </div>
                     </div>
                     <div className="page-splitter"/>
