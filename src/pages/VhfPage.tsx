@@ -10,18 +10,19 @@ export const VhfPage = () => {
 
     const history = useHistory();
 
-    const [VHF1, setVHF1] = useState<string>("");
-    const [VHF2, setVHF2] = useState<string>("");
-    const [VHF3, setVHF3] = useState<string>("");
-    const [STBY1, setSTBY1] = useState<string>("");
-    const [STBY2, setSTBY2] = useState<string>("");
-    const [STBY3, setSTBY3] = useState<string>("");
+    const [VHF1, setVHF1] = useState<number>(0);
+    const [VHF2, setVHF2] = useState<number>(0);
+    const [VHF3, setVHF3] = useState<number>(0);
+    const [STBY1, setSTBY1] = useState<number>(0);
+    const [STBY2, setSTBY2] = useState<number>(0);
+    const [STBY3, setSTBY3] = useState<number>(0);
 
     const [currentVFH, setCurrentVHF] = useState<"VHF1" | "VHF2">("VHF1");
 
     useEffect(() => {
         setVHF1(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF1")) || ""));
         setVHF2(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF2")) || ""));
+        setVHF3(JSON.parse(JSON.stringify(window.localStorage.getItem("VHF3")) || ""));
         setSTBY1(JSON.parse(JSON.stringify(window.localStorage.getItem("STBY1")) || ""));
         setSTBY2(JSON.parse(JSON.stringify(window.localStorage.getItem("STBY2")) || ""));
         setSTBY3(JSON.parse(JSON.stringify(window.localStorage.getItem("STBY3")) || ""));
@@ -29,13 +30,14 @@ export const VhfPage = () => {
     }, []);
 
     useEffect(() => {
-        window.localStorage.setItem("VHF1", VHF1);
-        window.localStorage.setItem("VHF2", VHF2);
-        window.localStorage.setItem("STBY1", STBY1);
-        window.localStorage.setItem("STBY2", STBY2);
-        window.localStorage.setItem("STBY3", STBY3);
+        window.localStorage.setItem("VHF1", JSON.stringify(VHF1));
+        window.localStorage.setItem("VHF2", JSON.stringify(VHF2));
+        window.localStorage.setItem("VHF3", JSON.stringify(VHF3));
+        window.localStorage.setItem("STBY1", JSON.stringify(STBY1));
+        window.localStorage.setItem("STBY2", JSON.stringify(STBY2));
+        window.localStorage.setItem("STBY3", JSON.stringify(STBY3));
         window.localStorage.setItem("currentVHF", currentVFH);
-    }, [VHF1, VHF2, currentVFH, STBY1, STBY2, STBY3]);
+    }, [VHF1, VHF2, VHF3, currentVFH, STBY1, STBY2, STBY3]);
 
     // HANDLE VALUE CHANGES IN VHF
 
@@ -176,7 +178,7 @@ export const VhfPage = () => {
         } else return;
     }
 
-    function switchValueVHF1() {
+    /*function switchValueVHF1() {
         setVHF1(STBY1);
         setSTBY1(VHF1);
     }
@@ -184,7 +186,7 @@ export const VhfPage = () => {
     function switchValueVHF2() {
         setVHF2(STBY2);
         setSTBY2(VHF2);
-    }
+    }*/
 
     return (
         <div className={"page"}>
@@ -199,15 +201,15 @@ export const VhfPage = () => {
             </div>
             <div className={"flex-column"}>
                 <div className={"flex-column-item-1"}>
-                    <Button type={ButtonType.Left} children={"⬤"} onClick={switchValueVHF1}/>
-                    <Button type={ButtonType.Left} children={"⬤"} onClick={switchValueVHF2}/>
+                    <Button type={ButtonType.Left} children={"⬤"}/>
+                    <Button type={ButtonType.Left} children={"⬤"}/>
                     <Button type={ButtonType.Left} children={"⬤"}/>
                     <Button type={ButtonType.Right} children={"MSG\nCLR"}/>
                 </div>
                 <div className={"screen"}>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input type={"number"} inputType={InputType.VHF} value={VHF1} characterLimit={7} placeholder={"000.000"} onChange={handleChangeVHF1}/>
+                            <Input inputType={InputType.VHF} value={VHF1} characterLimit={7}  onChange={handleChangeVHF1}/>
                             {checkSelectVHF1()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -215,13 +217,13 @@ export const VhfPage = () => {
                         </div>
                         <div className={"flex-row-item-3 " + addBorderVHF1()}>
                             <p>{handleStandByVHF1()}</p>
-                            <Input type={"number"} inputType={InputType.STBY} value={STBY1} placeholder={"000.000"} characterLimit={7} className={addSTBYColourVHF1()} onChange={handleChangeSTBY1}/>
+                            <Input inputType={InputType.STBY} value={STBY1} characterLimit={7} className={addSTBYColourVHF1()} onChange={handleChangeSTBY1}/>
                         </div>
                     </div>
                     <div className="page-splitter"/>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input type={"number"} inputType={InputType.VHF} value={VHF2} characterLimit={7} placeholder={"000.000"} onChange={handleChangeVHF2}/>
+                            <Input inputType={InputType.VHF} value={VHF2} characterLimit={7} onChange={handleChangeVHF2}/>
                             {checkSelectVHF2()}
                         </div>
                         <div className={"flex-row-item-2"}>
@@ -229,19 +231,19 @@ export const VhfPage = () => {
                         </div>
                         <div className={"flex-row-item-3 " + addBorderVHF2()}>
                             <p>{handleStandByVHF2()}</p>
-                            <Input type={"text"} inputType={InputType.STBY} value={STBY2} placeholder={"000.000"} characterLimit={7} className={addSTBYColourVHF2()} onChange={handleChangeSTBY2}/>
+                            <Input inputType={InputType.STBY} value={STBY2} characterLimit={7} className={addSTBYColourVHF2()} onChange={handleChangeSTBY2}/>
                         </div>
                     </div>
                     <div className="page-splitter"/>
                     <div className={"flex-row"}>
                         <div className={"flex-row-item-1"}>
-                            <Input type={"number"} inputType={InputType.VHF} value={VHF3} characterLimit={7} placeholder={"DATA"} onChange={handleChangeVHF3}/>
+                            <Input inputType={InputType.VHF} value={VHF3} characterLimit={7} onChange={handleChangeVHF3}/>
                         </div>
                         <div className={"flex-row-item-2"}>
                             <h2>VHF3</h2>
                         </div>
                         <div className={"flex-row-item-3"}>
-                            <Input type={"text"} inputType={InputType.STBY} value={STBY3} placeholder={"000.000"} characterLimit={7} onChange={handleChangeSTBY3}/>
+                            <Input inputType={InputType.STBY} value={STBY3} characterLimit={7} onChange={handleChangeSTBY3}/>
                         </div>
                     </div>
                     <div className="page-splitter"/>

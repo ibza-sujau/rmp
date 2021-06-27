@@ -10,14 +10,14 @@ export const SqwkPage = () => {
 
     const history = useHistory();
 
-    const [SQWK, setSQWK] = useState<string>("");
+    const [SQWK, setSQWK] = useState<number>(0);
 
     useEffect(() => {
         setSQWK(JSON.parse(JSON.stringify(window.localStorage.getItem("SQWK")) || ""));
     }, []);
 
     useEffect(() => {
-        window.localStorage.setItem("SQWK", SQWK);
+        window.localStorage.setItem("SQWK", JSON.stringify(SQWK));
     }, [SQWK]);
 
     function handleChangeSQWK(event: any) {
@@ -61,7 +61,7 @@ export const SqwkPage = () => {
                         </div>
                         <div className={"flex-column-2"}>
                             <p>SQWK</p>
-                            <Input inputType={InputType.VHF} characterLimit={4} placeholder={"0000"} type={"text"} onChange={handleChangeSQWK} value={SQWK}/>
+                            <Input inputType={InputType.VHF} characterLimit={4} onChange={handleChangeSQWK} value={SQWK}/>
                         </div>
                         <div className={"flex-column-3"}>
                             <p>* IDENT</p>
