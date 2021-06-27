@@ -61,7 +61,7 @@ export const SqwkPage = () => {
                         </div>
                         <div className={"flex-column-2"}>
                             <p>SQWK</p>
-                            <Input inputType={InputType.VHF} value={SQWK} characterLimit={4} placeholder={"0000"} type={"text"} onChange={handleChangeSQWK}/>
+                            <Input inputType={InputType.VHF} characterLimit={4} placeholder={"0000"} type={"text"} onChange={handleChangeSQWK} value={SQWK}/>
                         </div>
                         <div className={"flex-column-3"}>
                             <p>* IDENT</p>

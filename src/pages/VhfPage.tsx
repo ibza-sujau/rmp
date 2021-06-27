@@ -41,74 +41,26 @@ export const VhfPage = () => {
 
     function handleChangeVHF1(event: any) {
         setVHF1(event.target.value);
-        /*try {
-            if (event.target.value < 118.000 && event.target.value > 137.000) {
-                setVHF1(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }*/
     }
 
     function handleChangeVHF2(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 && numValue > 137.000) {
-                setVHF2(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setVHF2(event.target.value);
     }
 
     function handleChangeVHF3(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 && numValue > 137.000) {
-                setVHF3(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setVHF3(event.target.value);
     }
 
     function handleChangeSTBY1(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 && numValue > 137.000) {
-                setSTBY1(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setSTBY1(event.target.value);
     }
 
     function handleChangeSTBY2(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 && numValue > 137.000) {
-                setSTBY2(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setSTBY2(event.target.value);
     }
 
     function handleChangeSTBY3(event: any) {
-        try {
-            const numValue = parseFloat(event.target.value)
-            if (numValue < 118.000 || numValue > 137.000) {
-                setSTBY3(event.target.value);
-            }
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setSTBY3(event.target.value);
     }
 
     // SELECT VHF
