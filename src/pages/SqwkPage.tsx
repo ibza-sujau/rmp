@@ -37,9 +37,13 @@ export const SqwkPage = () => {
 
     const [SQWK, setSQWK] = useLocalStorage<number>("SQWK", 0);
 
+    // HANDLING SQWK CHANGE EVENT
+
     function handleChangeSQWK(event: any) {
         setSQWK(event.target.value);
     }
+
+    // ADDING COLOUR TO ACTIVE VHF
 
     function addColourVHF1() {
         if (window.localStorage.getItem("currentVHF") === "VHF1") {
@@ -51,6 +55,12 @@ export const SqwkPage = () => {
         if (window.localStorage.getItem("currentVHF") === "VHF2") {
             return "active-vhf"
         } else return;
+    }
+
+    // CHECKING INITIAL VALUE TO ADD ZEROS
+
+    function checkInitialValueSQWK() {
+        return SQWK === 0 ? "0000" : SQWK
     }
 
     return (
@@ -78,7 +88,7 @@ export const SqwkPage = () => {
                         </div>
                         <div className={"flex-column-2"}>
                             <p>SQWK</p>
-                            <Input inputType={InputType.VHF} characterLimit={4} onChange={handleChangeSQWK} value={SQWK}/>
+                            <Input inputType={InputType.VHF} characterLimit={4} onChange={handleChangeSQWK} value={checkInitialValueSQWK()}/>
                         </div>
                         <div className={"flex-column-3"}>
                             <p>* IDENT</p>
