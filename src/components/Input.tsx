@@ -8,7 +8,7 @@ export enum InputType {
 
 type InputProps = {
     inputType: InputType,
-    value: number,
+    value: number | string,
     placeholder?: string,
     characterLimit: number,
     className?: string,
