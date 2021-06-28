@@ -1,12 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './VhfPage.scss';
 import {useHistory} from "react-router-dom";
 
 // COMPONENTS
+
 import {Input, InputType} from "../components/Input"
 import {Button, ButtonType} from "../components/Button";
 
 // CUSTOM LOCAL STORAGE HOOK
+
 function useLocalStorage<T>(key: string, initialValue: T) {
     const [storedValue, setStoredValue] = useState<T>(() => {
         try {
@@ -39,18 +41,9 @@ export const VhfPage = () => {
     const [STBY1, setSTBY1] = useLocalStorage<number>("STBY1", 0);
     const [STBY2, setSTBY2] = useLocalStorage<number>("STBY2", 0);
     const [STBY3, setSTBY3] = useLocalStorage<number>("STBY3", 0);
+    const [currentVFH, setCurrentVHF] = useLocalStorage<"VHF1" | "VHF2">("currentVHF", "VHF1");
 
-    const [currentVFH, setCurrentVHF] = useState<"VHF1" | "VHF2">("VHF1");
-
-    useEffect(() => {
-        setCurrentVHF(JSON.parse(JSON.stringify(window.localStorage.getItem("currentVHF")) || ""));
-    }, []);
-
-    useEffect(() => {
-        window.localStorage.setItem("currentVHF", currentVFH);
-    }, [currentVFH]);
-
-    // HANDLE VALUE CHANGES IN VHF
+    // ADDING VHF AND STBY CHANGE HANDLERS
 
     function handleChangeVHF1(event: any) {
         setVHF1(event.target.value);
@@ -76,18 +69,17 @@ export const VhfPage = () => {
         setSTBY3(event.target.value);
     }
 
-    // SELECT VHF
+    // ADDING SELECT VHF HANDLER
 
     function handleSelectVHF1() {
         setCurrentVHF("VHF1");
-
     }
 
     function handleSelectVHF2() {
         setCurrentVHF("VHF2")
     }
 
-    // ADD VOLUME SVG
+    // ADDING VOLUME SVG
 
     function checkSelectVHF1() {
         if (currentVFH === "VHF1") {
@@ -119,7 +111,7 @@ export const VhfPage = () => {
         } else return;
     }
 
-    // ADD COLOUR
+    // ADDING COLOR TO ACTIVE VHF
 
     function addColourVHF1() {
         if (currentVFH === "VHF1") {
@@ -133,7 +125,7 @@ export const VhfPage = () => {
         } else return;
     }
 
-    // ADD STBY TEXT
+    // ADDING STBY TEXT
 
     function handleStandByVHF1() {
         if (currentVFH === "VHF1") {
@@ -147,7 +139,7 @@ export const VhfPage = () => {
         } else return;
     }
 
-    // ADD BORDER
+    // ADDING BORDER FOR STBY FREQUENCIES
 
     function addBorderVHF1() {
         if (currentVFH === "VHF1") {
@@ -161,7 +153,7 @@ export const VhfPage = () => {
         } else return;
     }
 
-    // ADD HIGHLIGHT
+    // ADDING HIGHLIGHT CLASS
 
     function addHighlightVHF1() {
         if (currentVFH === "VHF1") {
@@ -175,7 +167,7 @@ export const VhfPage = () => {
         } else return;
     }
 
-    // ADD STBY COLOUR
+    // ADDING STBY COLOR CLASS
 
     function addSTBYColourVHF1() {
         if (currentVFH === "VHF1") {
@@ -204,7 +196,7 @@ export const VhfPage = () => {
         setSTBY3(VHF3);
     }
 
-    // VALIDATE VALUE
+    // VALIDATING VALUE FOR FREQUENCY RANGE
 
     function validateValueVHF1() {
         if (VHF1 <= 137.000 && VHF1 >= 118.000) {

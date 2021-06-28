@@ -1,24 +1,41 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './SqwkPage.scss';
 import {useHistory} from "react-router-dom";
 
 // COMPONENTS
+
 import {Input, InputType} from "../components/Input"
 import {Button, ButtonType} from "../components/Button";
+
+// CUSTOM LOCAL STORAGE HOOK
+
+function useLocalStorage<T>(key: string, initialValue: T) {
+    const [storedValue, setStoredValue] = useState<T>(() => {
+        try {
+            const item = window.localStorage.getItem(key);
+            return item ? JSON.parse(item) : initialValue;
+        } catch (error) {
+            console.log(error);
+            return initialValue;
+        }
+    });
+    const setValue = (value: T | ((val: T) => T)) => {
+        try {
+            const valueToStore = value instanceof Function ? value(storedValue) : value;
+            setStoredValue(valueToStore);
+            window.localStorage.setItem(key, JSON.stringify(valueToStore));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    return [storedValue, setValue] as const;
+}
 
 export const SqwkPage = () => {
 
     const history = useHistory();
 
-    const [SQWK, setSQWK] = useState<number>(0);
-
-    useEffect(() => {
-        setSQWK(JSON.parse(JSON.stringify(window.localStorage.getItem("SQWK")) || ""));
-    }, []);
-
-    useEffect(() => {
-        window.localStorage.setItem("SQWK", SQWK.toString());
-    }, [SQWK]);
+    const [SQWK, setSQWK] = useLocalStorage<number>("SQWK", 0);
 
     function handleChangeSQWK(event: any) {
         setSQWK(event.target.value);
