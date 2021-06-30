@@ -49,7 +49,9 @@ export const SqwkPage = () => {
     function addColourVHF1() {
         if (window.localStorage.getItem("currentVHF") === "VHF1") {
             return "active-vhf"
-        } else return;
+        } 
+        //Writing return at the end of a function with no return value is unncesary
+        else return;
     }
 
     function addColourVHF2() {
