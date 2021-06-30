@@ -45,6 +45,7 @@ export const SqwkPage = () => {
 
     // ADDING COLOUR TO ACTIVE VHF
 
+    //Dublicate functions, I recomend parsing an argument as to which VHF to check
     function addColourVHF1() {
         if (window.localStorage.getItem("currentVHF") === "VHF1") {
             return "active-vhf"
@@ -66,7 +67,14 @@ export const SqwkPage = () => {
     return (
         <div className={"page"}>
             <div className={"flex-row main-button-group"}>
-                <Button type={ButtonType.Main} children={"VHF"} onClick={() => history.push("/vhs")}/>
+                
+                {/* Using children as a presentation attribute instead of putting it inside the tag? */}
+                {/* Better option \/ */}
+                <Button type={ButtonType.Main} onClick={() => history.push("/vhs")}>VHF</Button>
+                {/* Old code \/ */}
+                {/* <Button type={ButtonType.Main} children={"VHF"} onClick={() => history.push("/vhs")}/> */}
+                {/* Applies to all buttons */}
+
                 <Button type={ButtonType.Main} children={"HF"}/>
                 <Button type={ButtonType.Main} children={"TEL"}/>
                 <Button type={ButtonType.Main} children={"SQWK"} onClick={() => history.push("/sqwk")}/>

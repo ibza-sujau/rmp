@@ -45,6 +45,9 @@ export const VhfPage = () => {
 
     // ADDING VHF AND STBY CHANGE HANDLERS
 
+    //Quite alot of dublicate functions in this component, however I understand that you do not want to have to parse extra arguments
+    //altough adding extra arguments when calling from Inputs would stil be significantly smaller in terms of character count, and would probably look nicer
+
     function handleChangeVHF1(event: any) {
         setVHF1(event.target.value);
     }

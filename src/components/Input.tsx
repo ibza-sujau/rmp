@@ -19,14 +19,9 @@ type InputProps = {
 }
 
 export const Input = (props: InputProps) => {
-    switch(props.inputType) {
-        case InputType.VHF:
-            return (
-                <input value={props.value} onBlur={props.onBlur} placeholder={props.placeholder} type={"number"} maxLength={props.characterLimit} className={"vhf-input " + props.className} onChange={props.onChange} onClick={props.onClick}/>
-            )
-        case InputType.STBY:
-            return (
-                <input value={props.value} onBlur={props.onBlur} placeholder={props.placeholder} type={"number"} maxLength={props.characterLimit} className={"stby-input " + props.className} onChange={props.onChange} onClick={props.onClick}/>
-            )
-    }
+
+    //Use `` and ${} to remove dublicate code
+    return(
+        <input value={props.value} onBlur={props.onBlur} placeholder={props.placeholder} type={"number"} maxLength={props.characterLimit} className={`${InputType[props.inputType].toLowerCase()}-input ${props.className}`} onChange={props.onChange} onClick={props.onClick}/>
+    );
 }
